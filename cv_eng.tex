@@ -1,151 +1,179 @@
-\documentclass[helvetica, openbib, totpages, english]{europecv}
+% !TEX encoding = UTF-8
+% !TEX program = pdflatex
+% !TEX spellcheck = en_GB
 
-%--------------------------------------------------------------
+\RequirePackage{bibentry}
+\makeatletter\let\saved@bibitem\@bibitem\makeatother
 
-\usepackage[T1]{fontenc}
-\usepackage[english]{babel}
-\usepackage[a4paper,top=1.27cm,left=1cm,right=1cm,bottom=2cm]{geometry}
-\usepackage{bibentry, url, pdfpages, graphicx, xcolor, booktabs}
-\usepackage[urlcolor=blue, colorlinks=true]{hyperref}
+\documentclass[english, a4paper]{europasscv}
 
-%--------------------------------------------------------------
+\makeatletter\let\@bibitem\saved@bibitem\makeatother
 
-\renewcommand{\ttdefault}{phv} % Uses Helvetica instead of fixed width font
+\usepackage{booktabs}
+\usepackage{ifthen}
 
-\ecvname{Papini Tommaso}
-\ecvfootername{Tommaso Papini}
-\ecvaddress{33, Via Poggio alla Croce, 50063, Figline Valdarno (FI), Italy}
-\ecvtelephone[+39 334/3621205]{+39 055/9500024}
-%\ecvfax{}
-\ecvemail{\url{tommy39@gmail.com}}
+\newboolean{courses}
+\newboolean{projects}
+\newboolean{signature}
+\newboolean{urls}
+
+\newcommand{\ifCourses}[1]{\ifthenelse{\boolean{courses}}{#1}{}}
+\newcommand{\ifProjects}[1]{\ifthenelse{\boolean{projects}}{#1}{}}
+\newcommand{\ifSignature}[1]{\ifthenelse{\boolean{signature}}{#1}{}}
+\newcommand{\ifURLs}[1]{\ifthenelse{\boolean{urls}}{- \url{#1}}{}}
+
+\setboolean{courses}{false}
+\setboolean{projects}{false}
+\setboolean{signature}{false}
+\setboolean{urls}{false}
+
+\ecvname{Tommaso Papini}
+\ecvaddress{33, Via Poggio alla Croce, 50063, Figline e Incisa Valdarno (FI), Italy}
+\ecvtelephone[+39 3343621205]{+39 0559500024}
+\ecvemail{tommaso.papini@unifi.it}
+\ecvhomepage{https://www.linkedin.com/in/tommaso-papini/}
+\ecvim{Skype}{tommy39ita}
+\ecvdateofbirth{30 September 1990}
 \ecvnationality{Italian}
-\ecvdateofbirth{30/09/1990}
 \ecvgender{Male}
-\ecvpicture[width=3cm]{avatar.jpg}
-\ecvfootnote{For more information go to \url{https://europass.cedefop.europa.eu}\\
-\textcopyright~European Union, 2002-2016.}
 
-\graphicspath{{img/}}
-
-%--------------------------------------------------------------
+\ecvpicture[width=3.8cm]{img/avatar.jpg}
 
 \begin{document}
-	
-	\selectlanguage{english}
-	
-	\begin{europecv}
-		\ecvpersonalinfo[5pt]
-		\ecvitem{\large\textbf{Desired employment/ Occupational~field}}{\large\textbf{Software Development \& Research}}
-		
-		\ecvsection{Work experience}
-		
-		\ecvitem{Dates}{01/06/2016 - ongoing.}
-		\ecvitem{Occupation or position held}{Research Fellow.}
-		\ecvitem{Main activities and responsibilities}{Quantitative methods for the analysis of clinical pathways.}
-		\ecvitem{Name and address of employer}{University of Florence, Department of Computer Science, Via di S. Marta 3, 50139, Florence, Italy.}
-		\ecvitem[20pt]{Type of business or sector}{Quantitative analysis of systems.}
-		
-		\ecvitem{Dates}{01/10/2013 - 30/11/2014.}
-		\ecvitem{Occupation or position held}{Technical Student.}
-		\ecvitem{Main activities and responsibilities}{Web developer for the Indico KT Project, a Knowledge Transfer project for the Indico software. For more info: \url{https://github.com/oddlord/tesi-magistrale/raw/master/tesi/tesi.pdf}.}
-		\ecvitem{Name and address of employer}{CERN, Route de Meyrin 385 1217 Meyrin, Switzerland.}
-		\ecvitem{Type of business or sector}{Web development.}
-		
-%--------------------------------------------------------------
-
-		\ecvsection{Education and training}
-		
-		\ecvitem{Dates}{19/12/2012 - 20/04/2016.}
-		\ecvitem{Title of qualification awarded}{Master's Degree (Laurea Magistrale) in Computer Science.}
-		\ecvitem{Principal subjects/Occupational skills covered}{Data Warehousing, Programming Languages Theory, Quantitative Analysis of Systems, Information Theory, Human Computer Interaction, Numerical Analysis II, Information Retrieval, Advanced Architectures, Verification and Testing Methods, Algorithm Design and Analysis, Data Mining, Machine Learning, Sequential and Concurrent System Models.}
-		\ecvitem{Name and type of organization providing education and training}{University of Florence, Faculty of Maths, Physics and Natural Sciences, Master's Degree in Computer Science.}
-		\ecvitem[20pt]{Level in national or international classification}{110/110 cum laude.}
-		
-		\ecvitem{Dates}{06/10/2009 - 14/12/2012.}
-		\ecvitem{Title of qualification awarded}{Bachelor's Degree (Laurea) in Computer Science.}
-		\ecvitem{Principal subjects/Occupational skills covered}{Mathematics, Computer Architectures, Algorithms \& Data Structures, Programming (Basic \& Concurrent), Physics, Databases, Theoretical Foundations of Computer Science, AI, Computer Networks, Neural Networks, Numerical Analysis.}
-		\ecvitem{Name and type of organization providing education and training}{University of Florence, Faculty of Maths, Physics and Natural Sciences, Bachelor’s Degree in Computer Science.}
-		\ecvitem[20pt]{Level in national or international classification}{110/110 cum laude.}
-		
-		\ecvitem{Dates}{September 2010 - July 2011.}
-		\ecvitem{Principal subjects/Occupational skills covered}{Mathematics, Statistics, Physics, Codes and Security, Programming Patterns, Databases, Operative Systems.}
-		\ecvitem[20pt]{Name and type of organization providing education and training}{Technical University of Madrid, Faculty of Computer Science, Computer Engineering (Erasmus Programme).}
-		
-		\ecvitem{Date}{September 2004 - July 2009.}
-		\ecvitem{Title of qualification awarded}{High School Diploma.}
-		\ecvitem{Name and type of organization providing education and training}{State Institute of Higher Education ``Giorgio Vasari'', Experimental Scientific High School (PNI).}
-		\ecvitem[20pt]{Level in national or international classification}{76/100.}
-		
-%--------------------------------------------------------------
-
-		\ecvsection{Personal skills and~competences}
-		
-		\ecvmothertongue[5pt]{Italian}
-		\ecvitem{\large Other language(s)}{}
-		\ecvlanguageheader{(*)}
-		\ecvlanguage{English}{\ecvCOne}{\ecvCOne}{\ecvCOne}{\ecvCOne}{\ecvCOne}
-		\ecvlastlanguage{Spanish}{\ecvCOne}{\ecvCOne}{\ecvCOne}{\ecvCOne}{\ecvCOne}
-		\ecvlanguagefooter[10pt]{(*)}
-		
-%--------------------------------------------------------------
-
-		\ecvitem[10pt]{\large Social skills and competences}{Italian Red Cross Volunteer.}
-
-%		\ecvitem[10pt]{\large Organisational skills and competences}{Replace this text by a description of these competences and indicate where they were acquired (remove if not relevant).}
-
-		\ecvitem[10pt]{\large Technical skills and competences}{Good technical skills, especially in informatics and electronics, mostly self-taught.}
-
-		\ecvitem[10pt]{\large Computer skills and competences}{Very good computer skills, learned as self-taught and through the University. Very good knowledge in the use of various programming/markup languages (among the best known: Java, C, Shell Scripting, Assembler, LaTeX, Matlab, HTML5, XML, Declarative Programming, SQL, $\lambda$-calculus, Python, Javascript, CSS). High expertise with many tools such as Jinja2 templates, Github, virtualization tools, SASS. High skills in managing both software and hardware aspects.}
-
-		\ecvitem[10pt]{\large Artistic skills and competences}{Reasonable level in the use of guitar and in singing.}
-
-%		\ecvitem[10pt]{\large Other skills and competences}{Replace this text by a description of these competences and indicate where they were acquired (remove if not relevant).}
-
-		\ecvitem{\large Driving licence(s)}{Driver's license (Italian Republic, full European validity), category B (car owner).}
-		
-%--------------------------------------------------------------
-
-		\ecvsection{Additional information}
-%		\ecvitem[10pt]{}{Include here any other information that may be relevant, for example contact persons, references, etc. (Remove heading if not relevant).}
-		\ecvitem{}{\textbf{References}}
-		\ecvitem{}{Prof. Enrico Vicario, University of Florence, Italy;}
-		\ecvitem{}{Prof. Pierluigi Crescenzi, University of Florence, Italy;}
-		\ecvitem{}{Prof. Gregorio Landi, University of Florence, Italy;}
-		\ecvitem[10pt]{}{Pedro Ferreira, CERN, Geneva.}
-		
-		\ecvitem{}{\textbf{Other projects}}
-		\ecvitem{}{\textit{MRP steady-state}: Java implementation of an algorithm for the computation of steady-state probabilities for Markov Renewal Processes. Included in the Oris tool developed at STLab, University of Florence. \url{https://github.com/trianam/mvt/raw/master/steady_state_MRP.pdf}.}
-		\ecvitem{}{\textit{Rankboost}: C++ implementation of the learning-to-rank algorithm Rankboost. Included in the Quickrank tool developed at HPC Lab, ISTI, CNR.  \url{https://github.com/hpclab/quickrank}.}
-		\ecvitem{}{\textit{Blindstore}: Best Technology winning project at CERN Summer Student Webfest 2014 \& participant of The Port Hackathon 2014 @CERN. \url{http://blindstore.github.io/}.}
-		\ecvitem{}{\textit{Algorithm Visualization in HTML5}: bachelor's thesis on graphical visualization of algorithms in HTML5. \url{https://github.com/oddlord/tesi-triennale/raw/master/tesi.pdf}.}
-		\ecvitem[10pt]{}{\textit{Cerithidea Decollata}: neural network to simulate intertidal snails predicting the incoming tide. \url{https://github.com/oddlord/cerithidea-decollata-model/raw/master/CerithideaModel.pdf}.}
-		
+  \begin{europasscv}
+  
+  \ecvpersonalinfo
+  
+  \ecvbigitem{Job applied for}{Software Development \& Research}
+  
+  %------------------------------------------------------
+  \ecvsection{Work experience}
+  %------------------------------------------------------
+  
+      \ecvtitle{June 2016 -- Oct 2016}{Research Fellow}
+        \ecvitem{}{University of Florence (Italy)}
+        \ecvitem{}{Faculty of Engineering, Department of Information Engineering}
+        \ecvitem{}{Model based quantitative analysis for non-Markovian systems}
+      
+      \ecvtitle{Oct 2013 -- Nov 2014}{Technical Student Internship}
+        \ecvitem{}{CERN, Route de Meyrin 385, 1217 Meyrin (Switzerland)}
+        \ecvitem{}{Web developer for the Indico Knowledge Transfer Project, a project aimed to increased the worldwide impact of Indico. Indico is a web-application for event organization}
+  
+  %------------------------------------------------------
+  \ecvsection{Education and training}
+  %------------------------------------------------------
+  
+    \ecvtitlelevel{Nov 2016 -- Present}{PhD in Smart Computing}{ISCED 8}
+      \ecvitem{}{Universities of Florence, Pisa and Siena (Italy)}
+      \ecvitem{}{Faculty of Engineering, Department of Information Engineering}
+      \ifCourses{\ecvitem{Courses}{}}
+      \ecvitem{Thesis}{Model-based quantitative analysis for on-line diagnosis, prediction, scheduling and compliance evaluation in partially observable systems \ifURLs{https://github.com/oddlord/phd-sc-research-project/raw/master/research_project.pdf}}
+    
+    \ecvtitlelevel{Dec 2012 -- Apr 2016}{Master in Computer Science}{ISCED 7}
+      \ecvitem{}{University of Florence (Italy)}
+      \ecvitem{}{Faculty of Maths, Physics and Natural Sciences}
+      \ifCourses{\ecvitem{Courses}{Design and Analysis of Algorithms, Data Warehousing, Non-standard Architectures, Foundations of Programming Languages, Quantitative Analysis of Systems, Advanced Numerical Analysis, Models of Sequential and Concurrent Systems, Human Computer Interaction, Information Retrieval and Semantic Web Technologies, Machine Learning, Verification and Testing Methods, Data Mining, Information Theory}}
+      \ifProjects{\ecvitem{Projects}{
+        \begin{ecvitemize}
+          \item \textit{Rankboost}: C++ implementation of the learning-to-rank algorithm Rankboost. Included in the Quickrank tool developed at HPC Lab, ISTI, CNR \ifURLs{https://github.com/hpclab/quickrank}
+          \item \textit{MRP steady-state}: Java implementation of an algorithm for steady-state probabilities computation for Markov Regenerative Processes. Included in the Oris tool developed at STLab, University of Florence \ifURLs{https://github.com/trianam/mvt/raw/master/steady_state_MRP.pdf}
+        \end{ecvitemize}
+      }}
+      \ecvitem{Thesis}{
+        The Indico KT Project: Improving the worldwide impact of Indico \ifURLs{https://github.com/oddlord/tesi-magistrale/raw/master/tesi/tesi.pdf}
+      }
+      \ecvitem{Final Rank}{110/110 cum laude}
+    
+    \ecvtitlelevel{Sept 2010 -- July 2011}{Bachelor in Computer Engineering (Erasmus)}{ISCED 6}
+      \ecvitem{}{Polytechnic University of Madrid (Spain)}
+      \ecvitem{}{Faculty of Computer Science}
+      \ifCourses{\ecvitem{Courses}{Physical and Technological Foundations of Informatics, Linear Algebra, Probability and Statistics I, Programming II, Information Technology Security, Systems Programming, Operating Systems, Databases}}
+    
+    \ecvtitlelevel{Oct 2009 -- Dec 2012}{Bachelor in Computer Science}{ISCED 6}
+      \ecvitem{}{University of Florence (Italy)}
+      \ecvitem{}{Faculty of Maths, Physics and Natural Sciences}
+      \ifCourses{\ecvitem{Courses}{English, Algorithm and Data Structures, Real Analysis I \& II, Computer Architecture, Discrete Mathematics and Mathematical Logics, Programming, Data Bases and Information Systems, Operating Systems, Physics, Probability Theory and Statistics, Concurrent Programming, Programming Methodologies, Linear Algebra, Computing and Management, Models and Calculi for Physics, Artificial Intelligence, Coding Theory and Computer Security, Theoretical Computer Science, Numerical Analysis, Computer Networks}}
+      \ifProjects{\ecvitem{Projects}{
+        \begin{ecvitemize}
+          \item \textit{Cerithidea Decollata}: neural network to simulate intertidal snails predicting the incoming tide \ifURLs{https://github.com/oddlord/cerithidea-decollata-model/raw/master/CerithideaModel.pdf}
+        \end{ecvitemize}
+      }}
+      \ecvitem{Thesis}{
+        Algorithm Visualization in HTML5 \ifURLs{https://github.com/oddlord/tesi-triennale/raw/master/tesi.pdf}
+      }
+      \ecvitem{Final Rank}{110/110 cum laude}
+    
+    \ecvtitlelevel{Sept 2004 -- July 2009}{Scientific High School}{ISCED 3}
+      \ecvitem{}{State Institute of Higher Education \textit{Giorgio Vasari}, Figline e Incisa Valdarno (Italy)}
+      \ecvitem{}{National Plan of Computer Studies (PNI)}
+      \ecvitem{Final rank}{76/100}
+  
+  %------------------------------------------------------
+  \ecvsection{Personal skills}
+  %------------------------------------------------------
+  
+    \ecvmothertongue{Italian}
+    \ecvlanguageheader
+    \ecvlanguage{English}{B2}{C1}{B2}{C1}{C1}
+    \ecvlastlanguage{Spanish}{B2}{C1}{B2}{C1}{C1}
+    \ecvlanguagefooter
+    
+    \ecvblueitem{Communication skills}{I have worked both in research teams and development teams}
+    
+    \ecvblueitem{Organisational / managerial skills}{During my PhD and my research activity I supervised several students both for exam projects and thesis research}
+    
+    \ecvblueitem{Computer skills}{
+      \begin{ecvitemize}
+        \item programming languages: Java, C, C++, Shell Scripting, Assembler, LaTeX, Matlab, HTML5, XML, Declarative Programming, SQL, $\lambda$-calculus, Python, Javascript, CSS 
+        \item tools \& software: Jinja2 templates, Git, Github, QEMU, VirtualBox, SASS, Eclipse, Windows, Linux, dotfiles, Python Fabric, Jekyll
+      \end{ecvitemize}
+    }
+    
+    \ecvblueitem{Other skills}{Playing the electric guitar and listening to music. Training as a boxer and doing sports in general. Reading books of various nature. Passion for science. Love to travel and experience different cultures}
+    
+    \ecvblueitem{Driving licence}{B (car owner)}
+  
+  %------------------------------------------------------
+  \ecvsection{Additional information}
+  %------------------------------------------------------
+  
+    \ecvblueitem{References}{
+      \begin{ecvitemize}
+        \item Prof. Enrico Vicario, University of Florence (Italy) 
+        \item Prof. Pierluigi Crescenzi, University of Florence (Italy)
+        \item Prof. Gregorio Landi, University of Florence (Italy)
+        \item Pedro Ferreira, CERN, Geneva (Switzerland)
+      \end{ecvitemize}
+    }
+    
+    \ifProjects{\ecvblueitem{Other projects}{
+      \begin{ecvitemize}
+        \item \textit{Blindstore}: Private information retrieval data store. Best Technology winning project at CERN Summer Student Webfest 2014 \& participant of The Port Hackathon 2014 @CERN \ifURLs{http://blindstore.github.io/}
+      \end{ecvitemize}
+    }}
+    
 		\bibliographystyle{plain}
-		\nobibliography{publications}
-		\ecvitem{}{\textbf{Publications}}
-		\ecvitem[10pt]{}{\bibentry{mascots16}}
-
-		\ecvitem{}{\textbf{Personal interests}}
-		\ecvitem{}{Computers, Technology, Mathematics, Physics and Science in general. Books, Music and Entertainment. All kind of sports (currently a boxer). Travelling around the world.}
-		
-%		\ecvsection{Annexes}
-%		\ecvitem{}{Certificate of Bachelor's Degree in Computer Science with full exams list, for use abroad (copy, in italian);}
-%		\ecvitem[5pt]{}{Diploma Supplement (copy).}
-%
-%		\ecvitem{}{CERN Techical Student programme attestation (copy);}
-%		\ecvitem{}{CERN Summer Webfest 2014 attestation (copy);}
-%		\ecvitem{}{The Port Hackathon 2014 at CERN attestation (copy).}
-
-	\end{europecv}
-	
-	\null\vspace*{\stretch{1}}
-	\flushright
-	\begin{tabular}{rp{250pt}}
-	 & \small My personal details can be processed into your data system.\\ 
-	 &  \\ 
-	 & Signature:\\ 
-	 &  \\
-	  \bottomrule
-	\end{tabular}
-	
+    \nobibliography{publications}
+    
+    \ecvblueitem{Publications}{
+      \begin{ecvitemize}
+        \item \bibentry{martina2016performance}
+      \end{ecvitemize}
+    }
+      
+  
+  \end{europasscv}
+  
+ 	\ifSignature{
+    \null\vspace*{\stretch{1}}
+    \flushright
+    \begin{tabular}{rp{250pt}}
+      & \small My personal details can be processed into your data system.\\ 
+      &  \\ 
+      & Signature:\\ 
+      &  \\
+      \bottomrule
+    \end{tabular}
+  }
+  
 \end{document}
