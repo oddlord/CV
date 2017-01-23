@@ -1,154 +1,179 @@
-\documentclass[totpages, helvetica, openbib, italian]{europecv}
+% !TEX encoding = UTF-8
+% !TEX program = pdflatex
+% !TEX spellcheck = en_GB
 
-%--------------------------------------------------------------
+\RequirePackage{bibentry}
+\makeatletter\let\saved@bibitem\@bibitem\makeatother
 
-\usepackage[T1]{fontenc}
-\usepackage[italian]{babel}
-\usepackage[a4paper, top=1.27cm, left=1cm, right=1cm, bottom=2cm]{geometry}
-\usepackage{bibentry, url, pdfpages, graphicx, xcolor, booktabs}
-\usepackage[urlcolor=blue, colorlinks=true]{hyperref}
+\documentclass[italian, a4paper]{europasscv}
 
-%--------------------------------------------------------------
+\makeatletter\let\@bibitem\saved@bibitem\makeatother
 
-\renewcommand{\ttdefault}{phv} % Uses Helvetica instead of fixed width font
+\usepackage{booktabs}
+\usepackage{ifthen}
 
-\ecvname{Papini Tommaso}
-\ecvfootername{Tommaso Papini}
-\ecvaddress{33, Via Poggio alla Croce, 50063, Figline Valdarno (FI), Italia}
-\ecvtelephone[+39 334/3621205]{+39 055/9500024}
-%\ecvfax{}
-\ecvemail{\url{tommy39@gmail.com}}
+\newboolean{courses}
+\newboolean{projects}
+\newboolean{signature}
+\newboolean{urls}
+
+\newcommand{\ifCourses}[1]{\ifthenelse{\boolean{courses}}{#1}{}}
+\newcommand{\ifProjects}[1]{\ifthenelse{\boolean{projects}}{#1}{}}
+\newcommand{\ifSignature}[1]{\ifthenelse{\boolean{signature}}{#1}{}}
+\newcommand{\ifURLs}[1]{\ifthenelse{\boolean{urls}}{- \url{#1}}{}}
+
+\setboolean{courses}{false}
+\setboolean{projects}{false}
+\setboolean{signature}{false}
+\setboolean{urls}{false}
+
+\ecvname{Tommaso Papini}
+\ecvaddress{33, Via Poggio alla Croce, 50063, Figline e Incisa Valdarno (FI), Italia}
+\ecvtelephone[+39 3343621205]{+39 0559500024}
+\ecvemail{tommaso.papini@unifi.it}
+\ecvhomepage{https://www.linkedin.com/in/tommaso-papini/}
+\ecvim{Skype}{tommy39ita}
+\ecvdateofbirth{30 Settembre 1990}
 \ecvnationality{Italiana}
-\ecvdateofbirth{30/09/1990}
 \ecvgender{Maschile}
-\ecvpicture[width=3cm]{avatar.jpg}
-\ecvfootnote{Per ulteriori informazioni: \url{https://europass.cedefop.europa.eu}\\
-\textcopyright~European Union, 2002-2016.}
 
-\graphicspath{{img/}}
-
-%--------------------------------------------------------------
+\ecvpicture[width=3.8cm]{img/avatar.jpg}
 
 \begin{document}
-	
-	\selectlanguage{italian}
-	
-	\begin{europecv}
-		\ecvpersonalinfo[20pt]
-		
-		\ecvitem{\large\textbf{Impiego ricercato/ Settore di competenza}}{\large\textbf{Sviluppo e ricerca software}}
-
-		\ecvsection{Esperienza professionale}
-		
-		\ecvitem{Date}{01/06/2016 - in corso.}
-		\ecvitem{Funzione o posto occupato}{Assegnista di ricerca.}
-		\ecvitem{Principali mansioni e responsabilità}{Metodi quantitativi per l'analisi di percorsi clinici.}
-		\ecvitem{Nome e indirizzo del datore di lavoro}{Università degli Studi di Firenze, Dipartimento d'Ingegneria dell'Informazione, Via di S. Marta 3, 50139, Firenze, Italia.}
-		\ecvitem[20pt]{Tipo o settore d'attività}{Analisi quantitativa di sistemi.}
-		
-		\ecvitem{Date}{01/10/2013 - 30/11/2014.}
-		\ecvitem{Funzione o posto occupato}{Technical Student.}
-		\ecvitem{Principali mansioni e responsabilità}{Sviluppatore Web per l'Indico KT Project, progetto di Knowledge Transfer per il software Indico. Per maggiori informazioni: \url{https://github.com/oddlord/tesi-magistrale/raw/master/tesi/tesi.pdf}.}
-		\ecvitem{Nome e indirizzo del datore di lavoro}{CERN, Route de Meyrin 385 1217 Meyrin, Svizzera.}
-		\ecvitem{Tipo o settore d'attività}{Sviluppo Web.}
-		
-%--------------------------------------------------------------
-		
-		\ecvsection{Istruzione e formazione}
-		
-		\ecvitem{Date}{19/12/2012 - 20/04/2016.}
-		\ecvitem{Certificato o diploma ottenuto}{Laurea Magistrale in Informatica.}
-		\ecvitem{Principali materie/Competenze professionali apprese}{Data Warehousing, Teoria dei Linguaggi di Programmazione, Analisi Quantitativa dei Sistemi, Teoria dell'Informazione, Interazione Uomo Macchina, Complementi di Calcolo Numerico, Documentazione Automatica, Architetture Avanzate, Metodi di Verifica e Testing, Progettazione e Analisi degli Algoritmi, Data Mining, Apprendimento Automatico, Modelli di Sistemi Sequenziali e Concorrenti.}
-		\ecvitem{Nome e tipo d'istituto di istruzione o formazione}{Università degli Studi di Firenze, Facoltà di Scienze Matematiche, Fisiche e Naturali, Corso di Laurea Magistrale in Informatica.}
-		\ecvitem[20pt]{Livello nella classificazione nazionale o internazionale}{110/110 con lode.}
-		
-		\ecvitem{Date}{06/10/2009 - 14/12/2012.}
-		\ecvitem{Certificato o diploma ottenuto}{Laurea in Informatica.}
-		\ecvitem{Principali materie/Competenze professionali apprese}{Matematica, Architetture degli Elaboratori, Algoritmi e Strutture Dati, Programmazione (di Base e Concorrente), Fisica, Basi di Dati, Informatica Teorica, IA, Reti di Calcolatori, Reti Neurali, Analisi Numerica.}
-		\ecvitem{Nome e tipo d'istituto di istruzione o formazione}{Università degli Studi di Firenze, Facoltà di Scienze Matematiche, Fisiche e Naturali, Corso di Laurea Triennale in Informatica.}
-		\ecvitem[20pt]{Livello nella classificazione nazionale o internazionale}{110/110 con lode.}
-		
-		\ecvitem{Date}{Settembre 2010 - Luglio 2011.}
-		\ecvitem{Principali materie/Competenze professionali apprese}{Matematica, Statistica, Fisica, Codici e Sicurezza, Pattern di Programmazione, Basi di Dati, Sistemi Operativi.}
-		\ecvitem[20pt]{Nome e tipo d'istituto di istruzione o formazione}{Università Politecnica di Madrid, Facoltà di Informatica, Ingegneria Informatica (Programma Erasmus).}
-		
-		\ecvitem{Date}{Settembre 2004 - Luglio 2009.}
-		\ecvitem{Certificato o diploma ottenuto}{Diploma di istruzione superiore.}
-		\ecvitem{Nome e tipo d'istituto di istruzione o formazione}{Istituto Statale di Istruzione Superiore Giorgio Vasari, Liceo Scientifico sperimentale (PNI).}
-		\ecvitem[20pt]{Livello nella classificazione nazionale o internazionale}{76/100.}
-		
-%--------------------------------------------------------------
-		
-		\ecvsection{Capacità e competenze professionali}
-		
-		\ecvmothertongue[5pt]{Italiano}
-		\ecvitem{\large Altra/e lingua/e}{}
-		\ecvlanguageheader{(*)}
-		\ecvlanguage{Inglese}{\ecvCOne}{\ecvCOne}{\ecvCOne}{\ecvCOne}{\ecvCOne}
-		\ecvlastlanguage{Spagnolo}{\ecvCOne}{\ecvCOne}{\ecvCOne}{\ecvCOne}{\ecvCOne}
-		\ecvlanguagefooter[10pt]{(*)}
-		
-%--------------------------------------------------------------
-		
-		\ecvitem[10pt]{\large Capacità e competenze sociali}{Volontario della Croce Rossa Italiana.}
-
-%		\ecvitem[10pt]{\large Capacità e competenze organizzative}{Descrivere tali competenze e indicare dove sono state acquisite. Facoltativo.}
-
-		\ecvitem[10pt]{\large Capacità e competenze tecniche}{Discrete capacità tecniche, specialmente in campo informatico ed elettronico, apprese per la maggior parte come autodidatta.}
-
-		\ecvitem[10pt]{\large Capacità e competenze informatiche}{Grandi capacità informatiche, apprese sia come autodidatta che tramite l'Università. Grandi conoscenze nell'utilizzo dei più svariati linguaggi di programmazione/markup (tra i meglio conosciuti: Java, C, Shell Scripting, Assembler, LaTeX, Matlab, HTML5, XML, Programmazione Dichiarativa, SQL, $\lambda$-calcolo, Python, Javascript, CSS). Buona familiarità con molti strumenti come templates Jinja2, Guthub, strumenti di virtualizzazione, SASS. Alto grado di maneggevolezza sia per aspetti software che hardware.}
-
-		\ecvitem[10pt]{\large Capacità e competenze artistiche}{Discreto livello nell'utilizzo della chitarra e nel canto (amatoriale).}
-
-%		\ecvitem[10pt]{\large Altre capacità e competenze}{Descrivere tali competenze e indicare dove sono state acquisite. Facoltativo.}
-
-		\ecvitem[10pt]{\large Patente/i}{Patente di guida (Repubblica Italiana, piena validità Europea), categoria B (automunito).}
-		
-%--------------------------------------------------------------
-
-		\ecvsection{Ulteriori informazioni}
-%		\ecvitem[10pt]{}{Inserire qui ogni altra informazione utile, ad esempio persone di riferimento, referenze, etc\ldots Facoltativo.}
-		\ecvitem{}{\textbf{Referenze}}
-		\ecvitem{}{Prof. Enrico Vicario, Università degli Studi di Firenze, Italia;}
-		\ecvitem{}{Prof. Pierluigi Crescenzi, Università degli Studi di Firenze, Italia;}
-		\ecvitem{}{Prof. Gregorio Landi, Università degli Studi di Firenze, Italia;}
-		\ecvitem[10pt]{}{Pedro Ferreira, CERN, Ginevra.}
-
-		\ecvitem{}{\textbf{Altri progetti}}
-		\ecvitem{}{\textit{MRP steady-state}: Implementazione in Java di un algoritmo per il calcolo dello steady-state per Processi rigenerativi di Markov. Incluso nel software Oris sviluppato da STLab, Università degli Studi di Firenze. \url{https://github.com/trianam/mvt/raw/master/steady_state_MRP.pdf}.}
-		\ecvitem{}{\textit{Rankboost}: Implementazione in C++ dell'algoritmo learning-to-rank Rankboost. Incluso nel software Quickrank sviluppato da HCP Lab, ISTI, CNR. \url{https://github.com/hpclab/quickrank}.}
-		\ecvitem{}{\textit{Blindstore}: vincitore del Premio Tecnologia al CERN Summer Student Webfest 2014 \& concorrente dell'Hackathon The Port 2014 @CERN. \url{http://blindstore.github.io/}.}
-		\ecvitem{}{\textit{Visualizzazione di Algoritmi in HTML5}: tesi di laurea triennale sulla visualizzazione grafica di algoritmi in HTML5. \url{https://github.com/oddlord/tesi-triennale/raw/master/tesi.pdf}.}
-		\ecvitem[10pt]{}{\textit{Cerithidea Decollata}: rete neurale che simula la predizione delle maree di alcune chiocciole intertidali. \url{https://github.com/oddlord/cerithidea-decollata-model/raw/master/CerithideaModel.pdf}.}
-
+  \begin{europasscv}
+  
+  \ecvpersonalinfo
+  
+  \ecvbigitem{Impiego ricercato}{Sviluppo e Ricerca Software}
+  
+  %------------------------------------------------------
+  \ecvsection{Esperienza professionale}
+  %------------------------------------------------------
+  
+      \ecvtitle{Giugno 2016 -- Ott 2016}{Assegnista di Ricerca}
+        \ecvitem{}{Università degli Studi di Firenze (Italia)}
+        \ecvitem{}{Facoltà d'Ingegneria, Dipartimento d'Ingegneria dell'Informazione}
+        \ecvitem{}{Analisi quantitativa basata su modelli per sistemi non Markoviani}
+      
+      \ecvtitle{Ott 2013 -- Nov 2014}{Tirocinio come Technical Student}
+        \ecvitem{}{CERN, Route de Meyrin 385, 1217 Meyrin (Svizzera)}
+        \ecvitem{}{Sviluppatore web per l'Indico Knowledge Transfer Project, un progetto mirato al miglioramento dell'impatto a livello mondiale di Indico. Indico è un'applicazione web per l'organizzazione di eventi}
+  
+  %------------------------------------------------------
+  \ecvsection{Istruzione e formazione}
+  %------------------------------------------------------
+  
+    \ecvtitlelevel{Nov 2016 -- Presente}{Dottorato in Smart Computing}{ISCED 8}
+      \ecvitem{}{Università degli Studi di Firenze, Pisa e Siena (Italia)}
+      \ecvitem{}{Facoltà d'Ingegneria, Dipartimento d'Ingegneria dell'Informazione}
+      \ifCourses{\ecvitem{Corsi}{}}
+      \ecvitem{Tesi}{Analisi quantitativa basata su modelli per diagnosi, predizione, schedulazione e valutazione di aderenza on-line per sistemi parzialmente osservabili \ifURLs{https://github.com/oddlord/phd-sc-research-project/raw/master/research_project.pdf}}
+    
+    \ecvtitlelevel{Dic 2012 -- Apr 2016}{Laurea Magistrale in Informatica}{ISCED 7}
+      \ecvitem{}{Università degli Studi di Firenze (Italia)}
+      \ecvitem{}{Facoltà di Scienze Matematiche, Fisiche e Naturali}
+      \ifCourses{\ecvitem{Corsi}{Progettazione e Analisi di Algoritmi, Data Warehousing, Architetture Avanzate, Teoria dei Linguaggi di Programmazione, Analisi Quantitativa dei Sistemi, Complementi di Calcolo Numerico, Modelli di Sistemi Sequenziali e Concorrenti, Interazione Uomo Macchina, Documentazione Automatica, Apprendimento Automatico, Metodi di Verifica e Testing, Data Mining, Teoria dell'Informazione}}
+      \ifProjects{\ecvitem{Progetti}{
+        \begin{ecvitemize}
+          \item \textit{Rankboost}: Implementazione in C++ dell'algoritmo learning-to-rank Rankboost. Incluso nel software Quickrank sviluppato da HCP Lab, ISTI, CNR \ifURLs{https://github.com/hpclab/quickrank}
+          \item \textit{MRP steady-state}: Implementazione in Java di un algoritmo per il calcolo dello steady-state per Processi rigenerativi di Markov. Incluso nel software Oris sviluppato da STLab, Università degli Studi di Firenze \ifURLs{https://github.com/trianam/mvt/raw/master/steady_state_MRP.pdf}
+        \end{ecvitemize}
+      }}
+      \ecvitem{Tesi}{
+        Il progetto Indico KT: Migliorare l'impatto a livello mondiale di Indico \ifURLs{https://github.com/oddlord/tesi-magistrale/raw/master/tesi/tesi.pdf}
+      }
+      \ecvitem{Voto finale}{110/110 con lode}
+    
+    \ecvtitlelevel{Sett 2010 -- Luglio 2011}{Laurea Triennale in Ingegneria Informatica (Erasmus)}{ISCED 6}
+      \ecvitem{}{Università Politecnica di Madrid (Spagna)}
+      \ecvitem{}{Facoltà di Informatica}
+      \ifCourses{\ecvitem{Corsi}{Fondamenti Fisici e Tecnologici dell'Informatica, Algebra Lineare, Probabilità e Statistica I, Programmazione II, Sicurezza Informatica, Programmazione di Sistemi, Sistemi Operativi, Basi di Dati}}
+    
+    \ecvtitlelevel{Ott 2009 -- Dic 2012}{Laurea Triennale in Informatica}{ISCED 6}
+      \ecvitem{}{Università degli Studi di Firenze (Italia)}
+      \ecvitem{}{Facoltà di Scienze Matematiche, Fisiche e Naturali}
+      \ifCourses{\ecvitem{Corsi}{Inglese, Algoritmi e Strutture Dati, Analisi I \& II, Architetture degli Elaboratori, Matematica Discreta e Logica, Programmazione, Basi di Dati e Sistemi Informativi, Sistemi Operativi, Fisica Generale, Calcolo delle Probabilità e Statistica, Programmazione Concorrente, Metodologie di Programmazione, Algebra Lineare, Competenze Aziendali, Modelli e Calcoli per la Fisica, Intelligenza Artificiale, Codici e Sicurezza, Informatica Teorica, Calcolo Numerico, Reti di Calcolatori}}
+      \ifProjects{\ecvitem{Progetti}{
+        \begin{ecvitemize}
+          \item \textit{Cerithidea Decollata}: rete neurale che simula la predizione delle maree di alcune chiocciole intertidali \ifURLs{https://github.com/oddlord/cerithidea-decollata-model/raw/master/CerithideaModel.pdf}
+        \end{ecvitemize}
+      }}
+      \ecvitem{Tesi}{
+        Visualizzazione grafica di algoritmi in HTML5 \ifURLs{https://github.com/oddlord/tesi-triennale/raw/master/tesi.pdf}
+      }
+      \ecvitem{Voto finale}{110/110 con lode}
+    
+    \ecvtitlelevel{Sett 2004 -- Luglio 2009}{Liceo Scientifico}{ISCED 3}
+      \ecvitem{}{Istituto Statale di Istruzione Superiore \textit{Giorgio Vasari}, Figline e Incisa Valdarno (Italia)}
+      \ecvitem{}{Piano Nazionale di Informatica (PNI)}
+      \ecvitem{Voto finale}{76/100}
+  
+  %------------------------------------------------------
+  \ecvsection{Capacità personali}
+  %------------------------------------------------------
+  
+    \ecvmothertongue{Italiano}
+    \ecvlanguageheader
+    \ecvlanguage{Inglese}{B2}{C1}{B2}{C1}{C1}
+    \ecvlastlanguage{Spagnolo}{B2}{C1}{B2}{C1}{C1}
+    \ecvlanguagefooter
+    
+    \ecvblueitem{Capacità di comunicazione}{Ho lavorato in gruppi sia di sviluppo che di ricerca}
+    
+    \ecvblueitem{Capacità organizzative / manageriali}{Durante il Dottorato e l'attività di ricerca ho seguito diversi studenti sia per progetti d'esame che per ricerche di tesi}
+    
+    \ecvblueitem{Capacità informatiche}{
+      \begin{ecvitemize}
+        \item linguaggi di programmazione: Java, C, C++, shell scripting, assembler MIPS, LaTeX, Matlab, HTML5, XML, programmazione dichiarativa, SQL, $\lambda$-calcolo, Python, Javascript, CSS 
+        \item strumenti \& software: Jinja2, Git, Github, QEMU, VirtualBox, SASS, Eclipse, Windows, Linux, dotfiles, Python Fabric, Jekyll
+      \end{ecvitemize}
+    }
+    
+    \ecvblueitem{Altre capacità}{Suonare la chitarra elettrica ed ascoltare musica. Allenarsi come pugile e fare sport in generale. Leggere libri di vario genere. Grande passione per le scienze. Viaggiare per il mondo e scoprire nuove culture}
+    
+    \ecvblueitem{Patente}{B (automunito)}
+  
+  %------------------------------------------------------
+  \ecvsection{Ulteriori informazioni}
+  %------------------------------------------------------
+  
+    \ecvblueitem{Referenze}{
+      \begin{ecvitemize}
+        \item Prof. Enrico Vicario, Università degli Studi di Firenze (Italia) 
+        \item Prof. Pierluigi Crescenzi, Università degli Studi di Firenze (Italia)
+        \item Prof. Gregorio Landi, Università degli Studi di Firenze (Italia)
+        \item Pedro Ferreira, CERN, Ginevra (Svizzera)
+      \end{ecvitemize}
+    }
+    
+    \ifProjects{\ecvblueitem{Altri progetti}{
+      \begin{ecvitemize}
+        \item \textit{Blindstore}: data store per il recupero di dati anonimo. Vincitore del Premio Tecnologia al CERN Summer Student Webfest 2014 \& concorrente dell'Hackathon The Port 2014 @CERN \ifURLs{http://blindstore.github.io/}
+      \end{ecvitemize}
+    }}
+    
 		\bibliographystyle{plain}
-		\nobibliography{publications}
-		\ecvitem{}{\textbf{Pubblicazioni}}
-		\ecvitem[10pt]{}{\bibentry{mascots16}}
-
-		\ecvitem{}{\textbf{Interessi personali}}
-		\ecvitem{}{Informatica, Tecnologia, Matematica, Fisica e la Scienza in generale. Libri, Musica e Spettacolo. Sport di qualsiasi tipo (al momento pugile amatoriale). Viaggiare per il mondo.}
-		
-%		\ecvsection{Allegati}
-%		\ecvitem{}{Certificato di Laurea Triennale in Informatica con elenco completo degli esami sostenuti (copia);}
-%		\ecvitem[5pt]{}{Relazione Informativa di Supplemento al Diploma (copia).}
-
-%		\ecvitem{}{Attestazione del programma di Techical Student al CERN (copia, in inglese);}
-%		\ecvitem{}{Attestazione di partecipazione al CERN Summer Webfest 2014 (copia,  in inglese);}
-%		\ecvitem{}{Attestazione di partecipazione al The Port Hackathon 2014, al CERN (copia,  in inglese).}
-
-	\end{europecv}
-
-
-	\null\vspace*{\stretch{1}}
-	\flushright
-	\begin{tabular}{rp{250pt}}
-	 & \small Autorizzo il trattamento dei dati personali contenuti nel mio curriculum vitae in base art. 13 del \href{http://www.garanteprivacy.it/garante/doc.jsp?ID=1311248}{D. Lgs. 196/2003}.\\ 
-	 &  \\ 
-	 & Firma:\\ 
-	 &  \\
-	  \bottomrule
-	\end{tabular}
-
-
-\end{document} 
+    \nobibliography{publications}
+    
+    \ecvblueitem{Pubblicazioni}{
+      \begin{ecvitemize}
+        \item \bibentry{martina2016performance}
+      \end{ecvitemize}
+    }
+      
+  
+  \end{europasscv}
+  
+ 	\ifSignature{
+  	\null\vspace*{\stretch{1}}
+    \flushright
+    \begin{tabular}{rp{250pt}}
+      & \small Autorizzo il trattamento dei dati personali contenuti nel mio curriculum vitae in base art. 13 del \url{http://www.garanteprivacy.it/garante/doc.jsp?ID=1311248}{D. Lgs. 196/2003}.\\ 
+      &  \\ 
+      & Firma:\\ 
+      &  \\
+      \bottomrule
+    \end{tabular}
+  }
+  
+\end{document}
