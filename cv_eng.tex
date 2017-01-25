@@ -16,16 +16,20 @@
 \newboolean{projects}
 \newboolean{signature}
 \newboolean{urls}
+\newboolean{publications}
 
 \newcommand{\ifCourses}[1]{\ifthenelse{\boolean{courses}}{#1}{}}
 \newcommand{\ifProjects}[1]{\ifthenelse{\boolean{projects}}{#1}{}}
 \newcommand{\ifSignature}[1]{\ifthenelse{\boolean{signature}}{#1}{}}
 \newcommand{\ifURLs}[1]{\ifthenelse{\boolean{urls}}{- \url{#1}}{}}
+\newcommand{\ifPublications}[1]{\ifthenelse{\boolean{publications}}{#1}{}}
 
+\newcommand{\cvLanguage}{english}
 \setboolean{courses}{false}
 \setboolean{projects}{false}
 \setboolean{signature}{false}
 \setboolean{urls}{false}
+\setboolean{publications}{true}
 
 \ecvname{Tommaso Papini}
 \ecvaddress{33, Via Poggio alla Croce, 50063, Figline e Incisa Valdarno (FI), Italy}
@@ -37,7 +41,9 @@
 \ecvnationality{Italian}
 \ecvgender{Male}
 
-\ecvpicture[width=3.8cm]{img/avatar.jpg}
+\graphicspath{{img/}}
+
+\ecvpicture[width=3.8cm]{avatar.jpg}
 
 \begin{document}
   \begin{europasscv}
@@ -50,14 +56,14 @@
   \ecvsection{Work experience}
   %------------------------------------------------------
   
-      \ecvtitle{June 2016 -- Oct 2016}{Research Fellow}
-        \ecvitem{}{University of Florence (Italy)}
-        \ecvitem{}{Faculty of Engineering, Department of Information Engineering}
-        \ecvitem{}{Model based quantitative analysis for non-Markovian systems}
-      
-      \ecvtitle{Oct 2013 -- Nov 2014}{Technical Student Internship}
-        \ecvitem{}{CERN, Route de Meyrin 385, 1217 Meyrin (Switzerland)}
-        \ecvitem{}{Web developer for the Indico Knowledge Transfer Project, a project aimed to increased the worldwide impact of Indico. Indico is a web-application for event organization}
+    \ecvtitle{June 2016 -- Oct 2016}{Research Fellow}
+      \ecvitem{}{University of Florence (Italy)}
+      \ecvitem{}{Faculty of Engineering, Department of Information Engineering}
+      \ecvitem{}{Model based quantitative analysis for non-Markovian systems}
+    
+    \ecvtitle{Oct 2013 -- Nov 2014}{Technical Student Internship}
+      \ecvitem{}{CERN, Route de Meyrin 385, 1217 Meyrin (Switzerland)}
+      \ecvitem{}{Web developer for the Indico Knowledge Transfer Project, a project aimed to increased the worldwide impact of Indico. Indico is a web-application for event organization}
   
   %------------------------------------------------------
   \ecvsection{Education and training}
@@ -152,15 +158,16 @@
       \end{ecvitemize}
     }}
     
-		\bibliographystyle{plain}
-    \nobibliography{publications}
-    
-    \ecvblueitem{Publications}{
-      \begin{ecvitemize}
-        \item \bibentry{martina2016performance}
-      \end{ecvitemize}
-    }
+    \ifPublications{
+  	  \bibliographystyle{plain}
+      \nobibliography{publications}
       
+      \ecvblueitem{Pubblicazioni}{
+        \begin{ecvitemize}
+          \item \bibentry{martina2016performance}
+        \end{ecvitemize}
+      }
+    }
   
   \end{europasscv}
   
@@ -169,9 +176,9 @@
     \flushright
     \begin{tabular}{rp{250pt}}
       & \small My personal details can be processed into your data system.\\ 
-      &  \\ 
-      & Signature:\\ 
-      &  \\
+      & \\
+      & Signature:\\
+      & \\
       \bottomrule
     \end{tabular}
   }
