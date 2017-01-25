@@ -1,0 +1,29 @@
+\newcommand{\cvLanguage}{italian}
+
+\RequirePackage{bibentry}
+\makeatletter\let\saved@bibitem\@bibitem\makeatother
+
+\documentclass[\cvLanguage, a4paper]{europasscv}
+
+\makeatletter\let\@bibitem\saved@bibitem\makeatother
+
+\usepackage{booktabs}
+\usepackage{ifthen}
+
+\newboolean{courses}
+\newboolean{projects}
+\newboolean{signature}
+\newboolean{urls}
+\newboolean{publications}
+
+\newcommand{\ifCourses}[1]{\ifthenelse{\boolean{courses}}{#1}{}}
+\newcommand{\ifProjects}[1]{\ifthenelse{\boolean{projects}}{#1}{}}
+\newcommand{\ifSignature}[1]{\ifthenelse{\boolean{signature}}{#1}{}}
+\newcommand{\ifURLs}[1]{\ifthenelse{\boolean{urls}}{- \url{#1}}{}}
+\newcommand{\ifPublications}[1]{\ifthenelse{\boolean{publications}}{#1}{}}
+
+\setboolean{courses}{false}
+\setboolean{projects}{false}
+\setboolean{signature}{false}
+\setboolean{urls}{false}
+\setboolean{publications}{true}
