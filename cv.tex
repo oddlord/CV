@@ -4,58 +4,65 @@
 
 \newcommand{\cvLanguage}{english}
 
-\newcommand{\courses}{true}
-\newcommand{\projects}{true}
-\newcommand{\signature}{false}
-\newcommand{\urls}{true}
-\newcommand{\publications}{true}
+\newcommand{\enableCourses}{true}
+\newcommand{\enableProjects}{true}
+\newcommand{\enableSignature}{false}
+\newcommand{\enableURLs}{true}
+\newcommand{\enablePublications}{true}
 
 \input{conf/conf}
 
 \begin{document}
   \begin{europasscv}
     
-    \addName{Tommaso Papini}
-    \addAddress{33, Via Poggio alla Croce, 50063, Figline e Incisa Valdarno (FI), Italy}{33, Via Poggio alla Croce, 50063, Figline e Incisa Valdarno (FI), Italia}
-    \addCellTel{+39 3343621205}{+39 0559500024}
-    \addEmail{tommaso.papini@unifi.it}
-    \addHomepage{https://www.linkedin.com/in/tommaso-papini/}
-    \addIM{Skype}{tommy39ita}
-    \addGender{Male}{Maschile}
-    \addDateOfBirth{30 September 1990}{30 Settembre 1990}
-    \addNationality{Italian}{Italiana}
+    \name{Tommaso Papini}
+    \address
+      {33, Via Poggio alla Croce, 50063, Figline e Incisa Valdarno (FI), Italy}
+      {33, Via Poggio alla Croce, 50063, Figline e Incisa Valdarno (FI), Italia}
+    \cellTel{+39 3343621205}{+39 0559500024}
+    \email{tommaso.papini@unifi.it}
+    \homepage{https://www.linkedin.com/in/tommaso-papini/}
+    \instantMessaging{Skype}{tommy39ita}
+    \gender
+      {Male}
+      {Maschile}
+    \dateOfBirth
+      {30 September 1990}
+      {30 Settembre 1990}
+    \nationality
+      {Italian}
+      {Italiana}
+    \avatar{avatar.jpg}
     
-    \addPicture{avatar.jpg}
+    \personalInfo
     
-    \ecvpersonalinfo
-    
-    \addJobAppliedFor
+    \jobAppliedFor
       {Software Development \& Research}
       {Sviluppo e Ricerca Software}
     
     %------------------------------------------------------
     \workExperience
       
-      \addJob
+      \job
       {June 2016 -- Oct 2016}{Research Fellow}
       {Giugno 2016 -- Ott 2016}{Assegnista di Ricerca}
-        \addItem
+        \jobLocation
           {University of Florence (Italy)}
           {Università degli Studi di Firenze (Italia)}
-        \addItem
+        \jobDepartment
           {Faculty of Engineering, Department of Information Engineering}
           {Facoltà d'Ingegneria, Dipartimento d'Ingegneria dell'Informazione}
-        \addItem
+        \jobDescription
           {Model based quantitative analysis for non-Markovian systems}
           {Analisi quantitativa basata su modelli per sistemi non Markoviani}
       
-      \addJob
+      \job
       {Oct 2013 -- Nov 2014}{Technical Student Internship}
       {Ott 2013 -- Nov 2014}{Tirocinio come Technical Student}
-        \addItem
+        \jobLocation
           {CERN, Route de Meyrin 385, 1217 Meyrin (Switzerland)}
           {CERN, Route de Meyrin 385, 1217 Meyrin (Svizzera)}
-        \addItem
+        \jobDescription
           {Web developer for the Indico Knowledge Transfer Project, a project aimed to increased the worldwide impact of Indico. Indico is a web-application for event organization}
           {Sviluppatore web per l'Indico Knowledge Transfer Project, un progetto mirato al miglioramento dell'impatto a livello mondiale di Indico. Indico è un'applicazione web per l'organizzazione di eventi}
     %------------------------------------------------------
@@ -63,29 +70,29 @@
     %------------------------------------------------------
     \educationAndTraining
     
-      \addSchool
+      \school
       {Nov 2016 -- Present}{PhD in Smart Computing}
       {Nov 2016 -- Presente}{Dottorato in Smart Computing}
       {ISCED 8}
-        \addItem
+        \schoolLocation
           {Universities of Florence, Pisa and Siena (Italy)}
           {Università degli Studi di Firenze, Pisa e Siena (Italia)}
-        \addItem
+        \schoolFaculty
           {Faculty of Engineering, Department of Information Engineering}
           {Facoltà d'Ingegneria, Dipartimento d'Ingegneria dell'Informazione}
-        \addThesisURL
+        \thesisURL
           {Model-based quantitative analysis for on-line diagnosis, prediction, scheduling and compliance evaluation in partially observable systems}
           {Analisi quantitativa basata su modelli per diagnosi, predizione, schedulazione e valutazione di aderenza on-line per sistemi parzialmente osservabili}
           {https://github.com/oddlord/phd-sc-research-project/raw/master/research_project.pdf}
-      
-      \addSchool
+
+      \school
       {Dec 2012 -- Apr 2016}{Master in Computer Science}
       {Dic 2012 -- Apr 2016}{Laurea Magistrale in Informatica}
       {ISCED 7}
-        \addItem
+        \schoolLocation
           {University of Florence (Italy)}
           {Università degli Studi di Firenze (Italia)}
-        \addItem
+        \schoolFaculty
           {Faculty of Maths, Physics and Natural Sciences}
           {Facoltà di Scienze Matematiche, Fisiche e Naturali}
         \addCourses
@@ -101,7 +108,7 @@
             {Implementazione in Java di un algoritmo per il calcolo dello steady-state per Processi rigenerativi di Markov. Incluso nel software Oris sviluppato da STLab, Università degli Studi di Firenze}
             {https://github.com/trianam/mvt/raw/master/steady_state_MRP.pdf}
         }
-        \addThesisURL
+        \thesisURL
           {The Indico KT Project: Improving the worldwide impact of Indico}
           {Il progetto Indico KT: Migliorare l'impatto a livello mondiale di Indico}
           {https://github.com/oddlord/tesi-magistrale/raw/master/tesi/tesi.pdf}
@@ -109,28 +116,28 @@
           {110/110 cum laude}
           {110/110 con lode}
       
-      \addSchool
+      \school
       {Sept 2010 -- July 2011}{Bachelor in Computer Engineering (Erasmus)}
       {Sett 2010 -- Luglio 2011}{Laurea Triennale in Ingegneria Informatica (Erasmus)}
       {ISCED 6}
-        \addItem
+        \schoolLocation
           {Polytechnic University of Madrid (Spain)}
           {Università Politecnica di Madrid (Spagna)}
-        \addItem
+        \schoolFaculty
           {Faculty of Computer Science}
           {Facoltà di Informatica}
         \addCourses
           {Physical and Technological Foundations of Informatics, Linear Algebra, Probability and Statistics I, Programming II, Information Technology Security, Systems Programming, Operating Systems, Databases}
           {Fondamenti Fisici e Tecnologici dell'Informatica, Algebra Lineare, Probabilità e Statistica I, Programmazione II, Sicurezza Informatica, Programmazione di Sistemi, Sistemi Operativi, Basi di Dati}
         
-      \addSchool
+      \school
       {Oct 2009 -- Dec 2012}{Bachelor in Computer Science}
       {Ott 2009 -- Dic 2012}{Laurea Triennale in Informatica}
       {ISCED 6}
-        \addItem
+        \schoolLocation
           {University of Florence (Italy)}
           {Università degli Studi di Firenze (Italia)}
-        \addItem
+        \schoolFaculty
           {Faculty of Maths, Physics and Natural Sciences}
           {Facoltà di Scienze Matematiche, Fisiche e Naturali}
         \addCourses
@@ -142,7 +149,7 @@
           {rete neurale che simula la predizione delle maree di alcune chiocciole intertidali}
           {https://github.com/oddlord/cerithidea-decollata-model/raw/master/CerithideaModel.pdf}
         }
-        \addThesisURL
+        \thesisURL
           {Algorithm Visualization in HTML5}
           {Visualizzazione grafica di algoritmi in HTML5}
           {https://github.com/oddlord/tesi-triennale/raw/master/tesi.pdf}
@@ -150,14 +157,14 @@
           {110/110 cum laude}
           {110/110 con lode}
       
-      \addSchool
+      \school
       {Sept 2004 -- July 2009}{Scientific High School}
       {Sett 2004 -- Luglio 2009}{Liceo Scientifico}
       {ISCED 3}
-        \addItem
+        \schoolLocation
           {State Institute of Higher Education \textit{Giorgio Vasari}, Figline e Incisa Valdarno (Italy)}
           {Istituto Statale di Istruzione Superiore \textit{Giorgio Vasari}, Figline e Incisa Valdarno (Italia)}
-        \addItem
+        \schoolFaculty
           {National Plan of Computer Studies (PNI)}
           {Piano Nazionale di Informatica (PNI)}
         \addFinalRank
@@ -232,6 +239,6 @@
   
   \end{europasscv}
   
-  \addSignature
+  \signature
   
 \end{document}

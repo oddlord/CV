@@ -1,3 +1,7 @@
+% !TeX root = ../cv.tex
+% !TEX encoding = UTF-8
+% !TeX spellcheck = en_GB
+
 \RequirePackage{bibentry}
 \makeatletter\let\saved@bibitem\@bibitem\makeatother
 
@@ -16,17 +20,19 @@
 \newboolean{urlsBool}
 \newboolean{publicationsBool}
 
-\newcommand{\ifCourses}[1]{\ifthenelse{\boolean{coursesBool}}{#1}{}}
-\newcommand{\ifProjects}[1]{\ifthenelse{\boolean{projectsBool}}{#1}{}}
-\newcommand{\ifSignature}[1]{\ifthenelse{\boolean{signatureBool}}{#1}{}}
-\newcommand{\ifURLs}[1]{\ifthenelse{\boolean{urlsBool}}{#1}{}}
-\newcommand{\ifPublications}[1]{\ifthenelse{\boolean{publicationsBool}}{#1}{}}
+\newcommand{\ifBoolThenElse}[3]{\ifthenelse{\boolean{#1}}{#2}{#3}}%
+\newcommand{\ifBoolThen}[2]{\ifBoolThenElse{#1}{#2}{}}%
+\newcommand{\ifCourses}[1]{\ifBoolThen{coursesBool}{#1}}%
+\newcommand{\ifProjects}[1]{\ifBoolThen{projectsBool}{#1}}%
+\newcommand{\ifSignature}[1]{\ifBoolThen{signatureBool}{#1}}%
+\newcommand{\ifURLs}[1]{\ifBoolThen{urlsBool}{#1}}%
+\newcommand{\ifPublications}[1]{\ifBoolThen{publicationsBool}{#1}}%
 
-\setboolean{coursesBool}{\courses}
-\setboolean{projectsBool}{\projects}
-\setboolean{signatureBool}{\signature}
-\setboolean{urlsBool}{\urls}
-\setboolean{publicationsBool}{\publications}
+\setboolean{coursesBool}{\enableCourses}
+\setboolean{projectsBool}{\enableProjects}
+\setboolean{signatureBool}{\enableSignature}
+\setboolean{urlsBool}{\enableURLs}
+\setboolean{publicationsBool}{\enablePublications}
 
 \newcommand{\ifEngIta}[2]{%
   \ifthenelse{\equal{\cvLanguage}{english}}%
@@ -38,114 +44,108 @@
   }%
 }%
 
-\newcommand{\addSignature}{%
-  \ifSignature{%
-    \ifEngIta{%
-      \null\vspace*{\stretch{1}}%
-      \flushright%
-      \begin{tabular}{rp{250pt}}%
-        & \small My personal details can be processed into your data system.\\%
-        & \\%
-        & Signature:\\%
-        & \\%
-        \bottomrule%
-      \end{tabular}%
-    }{%
-      \null\vspace*{\stretch{1}}%
-      \flushright%
-      \begin{tabular}{rp{250pt}}%
-        & \small Autorizzo il trattamento dei dati personali contenuti nel mio curriculum vitae in base art. 13 del \url{http://www.garanteprivacy.it/garante/doc.jsp?ID=1311248}{D. Lgs. 196/2003}.\\%
-        & \\%
-        & Firma:\\%
-        & \\%
-        \bottomrule%
-      \end{tabular}%
-    }%
-  }%
-}%
+\newcommand{\name}[1]{\ecvname{#1}}%
+\newcommand{\address}[2]{\ecvaddress{\ifEngIta{#1}{#2}}}%
+\newcommand{\cellTel}[2]{\ecvtelephone[#1]{#2}}%
+\newcommand{\email}[1]{\ecvemail{#1}}%
+\newcommand{\homepage}[1]{\ecvhomepage{#1}}%
+\newcommand{\instantMessaging}[2]{\ecvim{#1}{#2}}%
+\newcommand{\gender}[2]{\ecvgender{\ifEngIta{#1}{#2}}}%
+\newcommand{\dateOfBirth}[2]{\ecvdateofbirth{\ifEngIta{#1}{#2}}}%
+\newcommand{\nationality}[2]{\ecvnationality{\ifEngIta{#1}{#2}}}%
+\newcommand{\avatar}[1]{\ecvpicture[width=3.8cm]{#1}}%
 
-\newenvironment{europasscvDocument}{%
-  \begin{document}\begin{europasscv}%
-}{%
-  \end{europasscv}\addSignature\end{document}%
-}%
+\newcommand{\personalInfo}{\ecvpersonalinfo}
 
-\newcommand{\addName}[1]{\ecvname{#1}}
-\newcommand{\addAddress}[2]{\ecvaddress{\ifEngIta{#1}{#2}}}
-\newcommand{\addCellTel}[2]{\ecvtelephone[#1]{#2}}
-\newcommand{\addEmail}[1]{\ecvemail{#1}}
-\newcommand{\addHomepage}[1]{\ecvhomepage{#1}}
-\newcommand{\addIM}[2]{\ecvim{#1}{#2}}
-\newcommand{\addDateOfBirth}[2]{\ecvdateofbirth{\ifEngIta{#1}{#2}}}
-\newcommand{\addNationality}[2]{\ecvnationality{\ifEngIta{#1}{#2}}}
-\newcommand{\addGender}[2]{\ecvgender{\ifEngIta{#1}{#2}}}
-\newcommand{\addPicture}[1]{\ecvpicture[width=3.8cm]{#1}}
-
-\ifEngIta{
-  \newcommand{\jobAppliedForString}{Job applied for}
-}{
-  \newcommand{\jobAppliedForString}{Impiego ricercato}
-}
-\newcommand{\addJobAppliedFor}[2]{%
-  \ecvbigitem{%
-    \jobAppliedForString%
+\newcommand{\stringCommand}[3]{%
+  \ifEngIta{%
+    \expandafter\newcommand\csname #1String\endcsname{#2}%
   }{%
-    \ifEngIta{#1}{#2}%
+    \expandafter\newcommand\csname #1String\endcsname{#3}%
+  }%
+}%
+\newcommand{\bigItemCommand}[1]{%
+  \expandafter\newcommand\csname #1\endcsname[2]{%
+    \ecvbigitem{\csname #1String\endcsname}{\ifEngIta{##1}{##2}}%
+  }%
+}%
+\newcommand{\sectionCommand}[1]{%
+  \expandafter\newcommand\csname #1\endcsname{%
+    \ecvsection{\csname #1String\endcsname}%
+  }%
+}%
+\newcommand{\titleCommand}[1]{%
+  \expandafter\newcommand\csname #1\endcsname[4]{%
+    \ecvtitle{\ifEngIta{##1}{##3}}{\ifEngIta{##2}{##4}}%
+  }%
+}%
+\newcommand{\titleLevelCommand}[1]{%
+  \expandafter\newcommand\csname #1\endcsname[5]{%
+    \ecvtitlelevel{\ifEngIta{##1}{##3}}{\ifEngIta{##2}{##4}}{##5}%
+  }%
+}%
+\newcommand{\ecvItemCommand}[1]{%
+  \expandafter\newcommand\csname #1\endcsname[2]{%
+    \ecvitem{}{\ifEngIta{##1}{##2}}%
+  }%
+}%
+\newcommand{\ecvItemTitleCommand}[1]{%
+  \expandafter\newcommand\csname #1\endcsname[2]{%
+    \ecvitem{\csname #1String\endcsname}{\ifEngIta{##1}{##2}}%
+  }%
+}%
+\newcommand{\ecvItemTitleURLCommand}[1]{%
+  \expandafter\newcommand\csname #1URL\endcsname[3]{%
+    \ecvitem{\csname #1String\endcsname}{\ifEngIta{##1}{##2}\addURL{##3}}%
   }%
 }%
 
-\ifEngIta{
-  \newcommand{\workExperienceString}{Work experience}
-}{
-  \newcommand{\workExperienceString}{Esperienza professionale}
-}
-\newcommand{\workExperience}{%
-  \ecvsection{\workExperienceString}%
-}%
+\newcommand{\addURL}[1]{\ifURLs{ - \url{#1}}}
 
-\newcommand{\addJob}[4]{%
-  \ecvtitle{\ifEngIta{#1}{#3}}{\ifEngIta{#2}{#4}}%
-}%
+\stringCommand{jobAppliedFor}{Job applied for}{Impiego ricercato}
+\stringCommand{workExperience}{Work experience}{Esperienza professionale}
+\stringCommand{educationAndTraining}{Education and training}{Istruzione e formazione}
+\stringCommand{thesis}{Thesis}{Tesi}
+\stringCommand{courses}{Courses}{Corsi}
+
+\bigItemCommand{jobAppliedFor}
+
+\sectionCommand{workExperience}
+\sectionCommand{educationAndTraining}
+
+\titleCommand{job}
+
+\titleLevelCommand{school}
+
+\ecvItemCommand{jobLocation}
+\ecvItemCommand{jobDepartment}
+\ecvItemCommand{jobDescription}
+\ecvItemCommand{schoolLocation}
+\ecvItemCommand{schoolFaculty}
+
+\ecvItemTitleCommand{thesis}
+\ecvItemTitleURLCommand{thesis}
+
+
+
+
 
 \newcommand{\addItem}[2]{%
   \ecvitem{}{\ifEngIta{#1}{#2}}%
 }%
 
-\ifEngIta{
-  \newcommand{\educationAndTrainingString}{Education and training}
-}{
-  \newcommand{\educationAndTrainingString}{Istruzione e formazione}
-}
-\newcommand{\educationAndTraining}{%
-  \ecvsection{\educationAndTrainingString}%
-}%
 
-\newcommand{\addSchool}[5]{%
-  \ecvtitlelevel{\ifEngIta{#1}{#3}}{\ifEngIta{#2}{#4}}{#5}%
-}%
 
-\ifEngIta{
-  \newcommand{\coursesString}{Courses}
-}{
-  \newcommand{\coursesString}{Corsi}
-}
+
+
+
 \newcommand{\addCourses}[2]{%
   \ifCourses{\ecvitem{\coursesString}{\ifEngIta{#1}{#2}}}%
 }%
 
-\newcommand{\addURL}[1]{\ifURLs{ - \url{#1}}}
 
-\ifEngIta{
-  \newcommand{\thesisString}{Thesis}
-}{
-  \newcommand{\thesisString}{Tesi}
-}
-\newcommand{\addThesis}[2]{%
-  \ecvitem{\thesisString}{\ifEngIta{#1}{#2}}%
-}%
-\newcommand{\addThesisURL}[3]{%
-  \ecvitem{\thesisString}{\ifEngIta{#1}{#2}\addURL{#3}}%
-}%
+
+
 
 \ifEngIta{
   \newcommand{\projectsString}{Projects}
@@ -326,4 +326,26 @@
 }%
 \newcommand{\addPublication}[1]{%
   \item \bibentry{#1}%
+}%
+
+\newcommand{\signature}{%
+  \ifSignature{%
+    \null\vspace*{\stretch{1}}%
+    \flushright%
+    \begin{tabular}{rp{250pt}}%
+      \ifEngIta{%
+        & \small My personal details can be processed into your data system.\\%
+      }{%
+        & \small Autorizzo il trattamento dei dati personali contenuti nel mio curriculum vitae in base art. 13 del \href{http://www.garanteprivacy.it/garante/doc.jsp?ID=1311248}{D. Lgs. 196/2003}.\\%
+      }%
+      & \\%
+      \ifEngIta{%
+        & Signature:\\%
+      }{%
+        & Firma:\\%
+      }%
+      & \\%
+      \bottomrule%
+    \end{tabular}%
+  }%
 }%
