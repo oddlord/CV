@@ -2,158 +2,236 @@
 % !TEX program = pdflatex
 % !TeX spellcheck = en_GB
 
+\newcommand{\cvLanguage}{english}
+
+\newcommand{\courses}{true}
+\newcommand{\projects}{true}
+\newcommand{\signature}{false}
+\newcommand{\urls}{true}
+\newcommand{\publications}{true}
+
 \input{conf/conf}
-
-\ecvname{Tommaso Papini}
-\ecvaddress{33, Via Poggio alla Croce, 50063, Figline e Incisa Valdarno (FI), Italia}
-\ecvtelephone[+39 3343621205]{+39 0559500024}
-\ecvemail{tommaso.papini@unifi.it}
-\ecvhomepage{https://www.linkedin.com/in/tommaso-papini/}
-\ecvim{Skype}{tommy39ita}
-\ecvdateofbirth{30 Settembre 1990}
-\ecvnationality{Italiana}
-\ecvgender{Maschile}
-
-\graphicspath{{img/}}
-
-\ecvpicture[width=3.8cm]{avatar.jpg}
 
 \begin{document}
   \begin{europasscv}
-  
-  \ecvpersonalinfo
-  
-  \ecvbigitem{Impiego ricercato}{Sviluppo e Ricerca Software}
-  
-  %------------------------------------------------------
-  \ecvsection{Esperienza professionale}
-  %------------------------------------------------------
-  
-    \ecvtitle{Giugno 2016 -- Ott 2016}{Assegnista di Ricerca}
-      \ecvitem{}{Università degli Studi di Firenze (Italia)}
-      \ecvitem{}{Facoltà d'Ingegneria, Dipartimento d'Ingegneria dell'Informazione}
-      \ecvitem{}{Analisi quantitativa basata su modelli per sistemi non Markoviani}
     
-    \ecvtitle{Ott 2013 -- Nov 2014}{Tirocinio come Technical Student}
-      \ecvitem{}{CERN, Route de Meyrin 385, 1217 Meyrin (Svizzera)}
-      \ecvitem{}{Sviluppatore web per l'Indico Knowledge Transfer Project, un progetto mirato al miglioramento dell'impatto a livello mondiale di Indico. Indico è un'applicazione web per l'organizzazione di eventi}
-  
-  %------------------------------------------------------
-  \ecvsection{Istruzione e formazione}
-  %------------------------------------------------------
-  
-    \ecvtitlelevel{Nov 2016 -- Presente}{Dottorato in Smart Computing}{ISCED 8}
-      \ecvitem{}{Università degli Studi di Firenze, Pisa e Siena (Italia)}
-      \ecvitem{}{Facoltà d'Ingegneria, Dipartimento d'Ingegneria dell'Informazione}
-      \ifCourses{\ecvitem{Corsi}{}}
-      \ecvitem{Tesi}{Analisi quantitativa basata su modelli per diagnosi, predizione, schedulazione e valutazione di aderenza on-line per sistemi parzialmente osservabili \ifURLs{https://github.com/oddlord/phd-sc-research-project/raw/master/research_project.pdf}}
+    \addName{Tommaso Papini}
+    \addAddress{33, Via Poggio alla Croce, 50063, Figline e Incisa Valdarno (FI), Italy}{33, Via Poggio alla Croce, 50063, Figline e Incisa Valdarno (FI), Italia}
+    \addCellTel{+39 3343621205}{+39 0559500024}
+    \addEmail{tommaso.papini@unifi.it}
+    \addHomepage{https://www.linkedin.com/in/tommaso-papini/}
+    \addIM{Skype}{tommy39ita}
+    \addGender{Male}{Maschile}
+    \addDateOfBirth{30 September 1990}{30 Settembre 1990}
+    \addNationality{Italian}{Italiana}
     
-    \ecvtitlelevel{Dic 2012 -- Apr 2016}{Laurea Magistrale in Informatica}{ISCED 7}
-      \ecvitem{}{Università degli Studi di Firenze (Italia)}
-      \ecvitem{}{Facoltà di Scienze Matematiche, Fisiche e Naturali}
-      \ifCourses{\ecvitem{Corsi}{Progettazione e Analisi di Algoritmi, Data Warehousing, Architetture Avanzate, Teoria dei Linguaggi di Programmazione, Analisi Quantitativa dei Sistemi, Complementi di Calcolo Numerico, Modelli di Sistemi Sequenziali e Concorrenti, Interazione Uomo Macchina, Documentazione Automatica, Apprendimento Automatico, Metodi di Verifica e Testing, Data Mining, Teoria dell'Informazione}}
-      \ifProjects{\ecvitem{Progetti}{
-        \begin{ecvitemize}
-          \item \textit{Rankboost}: Implementazione in C++ dell'algoritmo learning-to-rank Rankboost. Incluso nel software Quickrank sviluppato da HCP Lab, ISTI, CNR \ifURLs{https://github.com/hpclab/quickrank}
-          \item \textit{MRP steady-state}: Implementazione in Java di un algoritmo per il calcolo dello steady-state per Processi rigenerativi di Markov. Incluso nel software Oris sviluppato da STLab, Università degli Studi di Firenze \ifURLs{https://github.com/trianam/mvt/raw/master/steady_state_MRP.pdf}
-        \end{ecvitemize}
-      }}
-      \ecvitem{Tesi}{
-        Il progetto Indico KT: Migliorare l'impatto a livello mondiale di Indico \ifURLs{https://github.com/oddlord/tesi-magistrale/raw/master/tesi/tesi.pdf}
-      }
-      \ecvitem{Voto finale}{110/110 con lode}
+    \addPicture{avatar.jpg}
     
-    \ecvtitlelevel{Sett 2010 -- Luglio 2011}{Laurea Triennale in Ingegneria Informatica (Erasmus)}{ISCED 6}
-      \ecvitem{}{Università Politecnica di Madrid (Spagna)}
-      \ecvitem{}{Facoltà di Informatica}
-      \ifCourses{\ecvitem{Corsi}{Fondamenti Fisici e Tecnologici dell'Informatica, Algebra Lineare, Probabilità e Statistica I, Programmazione II, Sicurezza Informatica, Programmazione di Sistemi, Sistemi Operativi, Basi di Dati}}
+    \ecvpersonalinfo
     
-    \ecvtitlelevel{Ott 2009 -- Dic 2012}{Laurea Triennale in Informatica}{ISCED 6}
-      \ecvitem{}{Università degli Studi di Firenze (Italia)}
-      \ecvitem{}{Facoltà di Scienze Matematiche, Fisiche e Naturali}
-      \ifCourses{\ecvitem{Corsi}{Inglese, Algoritmi e Strutture Dati, Analisi I \& II, Architetture degli Elaboratori, Matematica Discreta e Logica, Programmazione, Basi di Dati e Sistemi Informativi, Sistemi Operativi, Fisica Generale, Calcolo delle Probabilità e Statistica, Programmazione Concorrente, Metodologie di Programmazione, Algebra Lineare, Competenze Aziendali, Modelli e Calcoli per la Fisica, Intelligenza Artificiale, Codici e Sicurezza, Informatica Teorica, Calcolo Numerico, Reti di Calcolatori}}
-      \ifProjects{\ecvitem{Progetti}{
-        \begin{ecvitemize}
-          \item \textit{Cerithidea Decollata}: rete neurale che simula la predizione delle maree di alcune chiocciole intertidali \ifURLs{https://github.com/oddlord/cerithidea-decollata-model/raw/master/CerithideaModel.pdf}
-        \end{ecvitemize}
-      }}
-      \ecvitem{Tesi}{
-        Visualizzazione grafica di algoritmi in HTML5 \ifURLs{https://github.com/oddlord/tesi-triennale/raw/master/tesi.pdf}
-      }
-      \ecvitem{Voto finale}{110/110 con lode}
+    \addJobAppliedFor
+      {Software Development \& Research}
+      {Sviluppo e Ricerca Software}
     
-    \ecvtitlelevel{Sett 2004 -- Luglio 2009}{Liceo Scientifico}{ISCED 3}
-      \ecvitem{}{Istituto Statale di Istruzione Superiore \textit{Giorgio Vasari}, Figline e Incisa Valdarno (Italia)}
-      \ecvitem{}{Piano Nazionale di Informatica (PNI)}
-      \ecvitem{Voto finale}{76/100}
-  
-  %------------------------------------------------------
-  \ecvsection{Capacità personali}
-  %------------------------------------------------------
-  
-    \ecvmothertongue{Italiano}
-    \ecvlanguageheader
-    \ecvlanguage{Inglese}{B2}{C1}{B2}{C1}{C1}
-    \ecvlastlanguage{Spagnolo}{B2}{C1}{B2}{C1}{C1}
-    \ecvlanguagefooter
-    
-    \ecvblueitem{Capacità di comunicazione}{Ho lavorato in gruppi sia di sviluppo che di ricerca}
-    
-    \ecvblueitem{Capacità organizzative / manageriali}{Durante il Dottorato e l'attività di ricerca ho seguito diversi studenti sia per progetti d'esame che per ricerche di tesi}
-    
-    \ecvblueitem{Capacità informatiche}{
-      \begin{ecvitemize}
-        \item linguaggi di programmazione: Java, C, C++, shell scripting, assembler MIPS, LaTeX, Matlab, HTML5, XML, programmazione dichiarativa, SQL, $\lambda$-calcolo, Python, Javascript, CSS 
-        \item strumenti \& software: Jinja2, Git, Github, QEMU, VirtualBox, SASS, Eclipse, Windows, Linux, dotfiles, Python Fabric, Jekyll
-      \end{ecvitemize}
-    }
-    
-    \ecvblueitem{Altre capacità}{Suonare la chitarra elettrica ed ascoltare musica. Allenarsi come pugile e fare sport in generale. Leggere libri di vario genere. Grande passione per le scienze. Viaggiare per il mondo e scoprire nuove culture}
-    
-    \ecvblueitem{Patente}{B (automunito)}
-  
-  %------------------------------------------------------
-  \ecvsection{Ulteriori informazioni}
-  %------------------------------------------------------
-  
-    \ecvblueitem{Referenze}{
-      \begin{ecvitemize}
-        \item Prof. Enrico Vicario, Università degli Studi di Firenze (Italia) 
-        \item Prof. Pierluigi Crescenzi, Università degli Studi di Firenze (Italia)
-        \item Prof. Gregorio Landi, Università degli Studi di Firenze (Italia)
-        \item Pedro Ferreira, CERN, Ginevra (Svizzera)
-      \end{ecvitemize}
-    }
-    
-    \ifProjects{\ecvblueitem{Altri progetti}{
-      \begin{ecvitemize}
-        \item \textit{Blindstore}: data store per il recupero di dati anonimo. Vincitore del Premio Tecnologia al CERN Summer Student Webfest 2014 \& concorrente dell'Hackathon The Port 2014 @CERN \ifURLs{http://blindstore.github.io/}
-      \end{ecvitemize}
-    }}
-    
-    \ifPublications{
-  	  \bibliographystyle{plain}
-      \nobibliography{publications}
+    %------------------------------------------------------
+    \workExperience
       
-      \ecvblueitem{Pubblicazioni}{
-        \begin{ecvitemize}
-          \item \bibentry{martina2016performance}
-        \end{ecvitemize}
+      \addJob
+      {June 2016 -- Oct 2016}{Research Fellow}
+      {Giugno 2016 -- Ott 2016}{Assegnista di Ricerca}
+        \addItem
+          {University of Florence (Italy)}
+          {Università degli Studi di Firenze (Italia)}
+        \addItem
+          {Faculty of Engineering, Department of Information Engineering}
+          {Facoltà d'Ingegneria, Dipartimento d'Ingegneria dell'Informazione}
+        \addItem
+          {Model based quantitative analysis for non-Markovian systems}
+          {Analisi quantitativa basata su modelli per sistemi non Markoviani}
+      
+      \addJob
+      {Oct 2013 -- Nov 2014}{Technical Student Internship}
+      {Ott 2013 -- Nov 2014}{Tirocinio come Technical Student}
+        \addItem
+          {CERN, Route de Meyrin 385, 1217 Meyrin (Switzerland)}
+          {CERN, Route de Meyrin 385, 1217 Meyrin (Svizzera)}
+        \addItem
+          {Web developer for the Indico Knowledge Transfer Project, a project aimed to increased the worldwide impact of Indico. Indico is a web-application for event organization}
+          {Sviluppatore web per l'Indico Knowledge Transfer Project, un progetto mirato al miglioramento dell'impatto a livello mondiale di Indico. Indico è un'applicazione web per l'organizzazione di eventi}
+    %------------------------------------------------------
+    
+    %------------------------------------------------------
+    \educationAndTraining
+    
+      \addSchool
+      {Nov 2016 -- Present}{PhD in Smart Computing}
+      {Nov 2016 -- Presente}{Dottorato in Smart Computing}
+      {ISCED 8}
+        \addItem
+          {Universities of Florence, Pisa and Siena (Italy)}
+          {Università degli Studi di Firenze, Pisa e Siena (Italia)}
+        \addItem
+          {Faculty of Engineering, Department of Information Engineering}
+          {Facoltà d'Ingegneria, Dipartimento d'Ingegneria dell'Informazione}
+        \addThesisURL
+          {Model-based quantitative analysis for on-line diagnosis, prediction, scheduling and compliance evaluation in partially observable systems}
+          {Analisi quantitativa basata su modelli per diagnosi, predizione, schedulazione e valutazione di aderenza on-line per sistemi parzialmente osservabili}
+          {https://github.com/oddlord/phd-sc-research-project/raw/master/research_project.pdf}
+      
+      \addSchool
+      {Dec 2012 -- Apr 2016}{Master in Computer Science}
+      {Dic 2012 -- Apr 2016}{Laurea Magistrale in Informatica}
+      {ISCED 7}
+        \addItem
+          {University of Florence (Italy)}
+          {Università degli Studi di Firenze (Italia)}
+        \addItem
+          {Faculty of Maths, Physics and Natural Sciences}
+          {Facoltà di Scienze Matematiche, Fisiche e Naturali}
+        \addCourses
+          {Design and Analysis of Algorithms, Data Warehousing, Non-standard Architectures, Foundations of Programming Languages, Quantitative Analysis of Systems, Advanced Numerical Analysis, Models of Sequential and Concurrent Systems, Human Computer Interaction, Information Retrieval and Semantic Web Technologies, Machine Learning, Verification and Testing Methods, Data Mining, Information Theory}
+          {Progettazione e Analisi di Algoritmi, Data Warehousing, Architetture Avanzate, Teoria dei Linguaggi di Programmazione, Analisi Quantitativa dei Sistemi, Complementi di Calcolo Numerico, Modelli di Sistemi Sequenziali e Concorrenti, Interazione Uomo Macchina, Documentazione Automatica, Apprendimento Automatico, Metodi di Verifica e Testing, Data Mining, Teoria dell'Informazione}
+        \addProjects{
+          \addProjectURL{Rankboost}
+            {C++ implementation of the learning-to-rank algorithm Rankboost. Included in the Quickrank tool developed at HPC Lab, ISTI, CNR}
+            {Implementazione in C++ dell'algoritmo learning-to-rank Rankboost. Incluso nel software Quickrank sviluppato da HCP Lab, ISTI, CNR}
+            {https://github.com/hpclab/quickrank}
+          \addProjectURL{MRP steady-state}
+            {Java implementation of an algorithm for steady-state probabilities computation for Markov Regenerative Processes. Included in the Oris tool developed at STLab, University of Florence}
+            {Implementazione in Java di un algoritmo per il calcolo dello steady-state per Processi rigenerativi di Markov. Incluso nel software Oris sviluppato da STLab, Università degli Studi di Firenze}
+            {https://github.com/trianam/mvt/raw/master/steady_state_MRP.pdf}
+        }
+        \addThesisURL
+          {The Indico KT Project: Improving the worldwide impact of Indico}
+          {Il progetto Indico KT: Migliorare l'impatto a livello mondiale di Indico}
+          {https://github.com/oddlord/tesi-magistrale/raw/master/tesi/tesi.pdf}
+        \addFinalRank
+          {110/110 cum laude}
+          {110/110 con lode}
+      
+      \addSchool
+      {Sept 2010 -- July 2011}{Bachelor in Computer Engineering (Erasmus)}
+      {Sett 2010 -- Luglio 2011}{Laurea Triennale in Ingegneria Informatica (Erasmus)}
+      {ISCED 6}
+        \addItem
+          {Polytechnic University of Madrid (Spain)}
+          {Università Politecnica di Madrid (Spagna)}
+        \addItem
+          {Faculty of Computer Science}
+          {Facoltà di Informatica}
+        \addCourses
+          {Physical and Technological Foundations of Informatics, Linear Algebra, Probability and Statistics I, Programming II, Information Technology Security, Systems Programming, Operating Systems, Databases}
+          {Fondamenti Fisici e Tecnologici dell'Informatica, Algebra Lineare, Probabilità e Statistica I, Programmazione II, Sicurezza Informatica, Programmazione di Sistemi, Sistemi Operativi, Basi di Dati}
+        
+      \addSchool
+      {Oct 2009 -- Dec 2012}{Bachelor in Computer Science}
+      {Ott 2009 -- Dic 2012}{Laurea Triennale in Informatica}
+      {ISCED 6}
+        \addItem
+          {University of Florence (Italy)}
+          {Università degli Studi di Firenze (Italia)}
+        \addItem
+          {Faculty of Maths, Physics and Natural Sciences}
+          {Facoltà di Scienze Matematiche, Fisiche e Naturali}
+        \addCourses
+          {English, Algorithm and Data Structures, Real Analysis I \& II, Computer Architecture, Discrete Mathematics and Mathematical Logics, Programming, Data Bases and Information Systems, Operating Systems, Physics, Probability Theory and Statistics, Concurrent Programming, Programming Methodologies, Linear Algebra, Computing and Management, Models and Calculi for Physics, Artificial Intelligence, Coding Theory and Computer Security, Theoretical Computer Science, Numerical Analysis, Computer Networks}
+          {Inglese, Algoritmi e Strutture Dati, Analisi I \& II, Architetture degli Elaboratori, Matematica Discreta e Logica, Programmazione, Basi di Dati e Sistemi Informativi, Sistemi Operativi, Fisica Generale, Calcolo delle Probabilità e Statistica, Programmazione Concorrente, Metodologie di Programmazione, Algebra Lineare, Competenze Aziendali, Modelli e Calcoli per la Fisica, Intelligenza Artificiale, Codici e Sicurezza, Informatica Teorica, Calcolo Numerico, Reti di Calcolatori}
+        \addProjects{
+          \addProjectURL{Cerithidea Decollata}
+          {neural network to simulate intertidal snails predicting the incoming tide}
+          {rete neurale che simula la predizione delle maree di alcune chiocciole intertidali}
+          {https://github.com/oddlord/cerithidea-decollata-model/raw/master/CerithideaModel.pdf}
+        }
+        \addThesisURL
+          {Algorithm Visualization in HTML5}
+          {Visualizzazione grafica di algoritmi in HTML5}
+          {https://github.com/oddlord/tesi-triennale/raw/master/tesi.pdf}
+        \addFinalRank
+          {110/110 cum laude}
+          {110/110 con lode}
+      
+      \addSchool
+      {Sept 2004 -- July 2009}{Scientific High School}
+      {Sett 2004 -- Luglio 2009}{Liceo Scientifico}
+      {ISCED 3}
+        \addItem
+          {State Institute of Higher Education \textit{Giorgio Vasari}, Figline e Incisa Valdarno (Italy)}
+          {Istituto Statale di Istruzione Superiore \textit{Giorgio Vasari}, Figline e Incisa Valdarno (Italia)}
+        \addItem
+          {National Plan of Computer Studies (PNI)}
+          {Piano Nazionale di Informatica (PNI)}
+        \addFinalRank
+          {76/100}
+          {76/100}
+    %------------------------------------------------------
+    
+    %------------------------------------------------------
+    \personalSkills
+    
+      \addMotherTongue{Italian}{Italiano}
+      \addOtherLanguages{
+        \addLanguage{English}{Inglese}{B2}{C1}{B2}{C1}{C1}
+        \addLastLanguage{Spanish}{Spagnolo}{B2}{C1}{B2}{C1}{C1}
       }
-    }
+      
+      \communicationSkills
+        {I have worked both in research teams and development teams}
+        {Ho lavorato in gruppi sia di sviluppo che di ricerca}
+      
+      \organisationalSkills
+        {During my PhD and my research activity I supervised several students both for exam projects and thesis research}
+        {Durante il Dottorato e l'attività di ricerca ho seguito diversi studenti sia per progetti d'esame che per ricerche di tesi}
+        
+      \computerSkills
+        {\addList{
+          \addListItem{programming languages: Java, C, C++, shell scripting, MIPS assembler, LaTeX, Matlab, HTML5, XML, declarative programming, SQL, $\lambda$-calculus, Python, Javascript, CSS}
+          \addListItem{tools \& software: Jinja2, Git, Github, QEMU, VirtualBox, SASS, Eclipse, Windows, Linux, dotfiles, Python Fabric, Jekyll}
+        }}
+        {\addList{
+          \addListItem{linguaggi di programmazione: Java, C, C++, shell scripting, assembler MIPS, LaTeX, Matlab, HTML5, XML, programmazione dichiarativa, SQL, $\lambda$-calcolo, Python, Javascript, CSS}
+          \addListItem{strumenti \& software: Jinja2, Git, Github, QEMU, VirtualBox, SASS, Eclipse, Windows, Linux, dotfiles, Python Fabric, Jekyll}
+        }}
+        
+      \otherSkills
+        {Playing the electric guitar and listening to music. Training as a boxer and doing sports in general. Reading books of various nature. Passion for science. Love to travel and experience different cultures}
+        {Suonare la chitarra elettrica ed ascoltare musica. Allenarsi come pugile e fare sport in generale. Leggere libri di vario genere. Grande passione per le scienze. Viaggiare per il mondo e scoprire nuove culture}
+        
+      \drivingLicence
+        {B (car owner)}
+        {B (automunito)}
+    %------------------------------------------------------
+    
+    %------------------------------------------------------
+    \additionalInfo
+    
+      \references
+        {
+          \addReference{Prof. Enrico Vicario, University of Florence (Italy)} 
+          \addReference{Prof. Pierluigi Crescenzi, University of Florence (Italy)}
+          \addReference{Prof. Gregorio Landi, University of Florence (Italy)}
+          \addReference{Pedro Ferreira, CERN, Geneva (Switzerland)}
+        }
+        {
+          \addReference{Prof. Enrico Vicario, Università degli Studi di Firenze (Italia)} 
+          \addReference{Prof. Pierluigi Crescenzi, Università degli Studi di Firenze (Italia)}
+          \addReference{Prof. Gregorio Landi, Università degli Studi di Firenze (Italia)}
+          \addReference{Pedro Ferreira, CERN, Ginevra (Svizzera)}
+        }
+        
+      \otherProjects{
+        \addProjectURL{Blindstore}
+        {private information retrieval data store. Best Technology winning project at CERN Summer Student Webfest 2014 \& participant of The Port Hackathon 2014 @CERN}
+        {data store per il recupero di dati anonimo. Vincitore del Premio Tecnologia al CERN Summer Student Webfest 2014 \& concorrente dell'Hackathon The Port 2014 @CERN}
+        {http://blindstore.github.io/}
+      }
+      
+      \addPublications{
+        \addPublication{martina2016performance}
+      }
+    %------------------------------------------------------
   
   \end{europasscv}
   
-  \ifSignature{
-    \null\vspace*{\stretch{1}}
-    \flushright
-    \begin{tabular}{rp{250pt}}
-      & \small Autorizzo il trattamento dei dati personali contenuti nel mio curriculum vitae in base art. 13 del \url{http://www.garanteprivacy.it/garante/doc.jsp?ID=1311248}{D. Lgs. 196/2003}.\\
-      & \\
-      & Firma:\\
-      & \\
-      \bottomrule
-    \end{tabular}
-  }
+  \addSignature
   
 \end{document}
