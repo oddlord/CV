@@ -99,6 +99,16 @@
     \ecvitem{\csname #1String\endcsname}{\ifEngIta{##1}{##2}\addURL{##3}}%
   }%
 }%
+\newcommand{\ecvItemIfTitleCommand}[1]{%
+  \expandafter\newcommand\csname #1\endcsname[2]{%
+    \ifBoolThen{#1Bool}{\ecvitem{\csname #1String\endcsname}{\ifEngIta{##1}{##2}}}%
+  }%
+}%
+%\newcommand{\ecvItemIfTitleListCommand}[1]{%
+%  \expandafter\newcommand\csname #1\endcsname[1]{%
+%    \ifBoolThen{#1Bool}{\ecvitem{\csname #1String\endcsname}{\begin{ecvitemize}##1\end{ecvitemize}}%
+%  }%
+%}%
 
 \newcommand{\addURL}[1]{\ifURLs{ - \url{#1}}}
 
@@ -107,6 +117,7 @@
 \stringCommand{educationAndTraining}{Education and training}{Istruzione e formazione}
 \stringCommand{thesis}{Thesis}{Tesi}
 \stringCommand{courses}{Courses}{Corsi}
+\stringCommand{projects}{Projects}{Progetti}
 
 \bigItemCommand{jobAppliedFor}
 
@@ -124,9 +135,12 @@
 \ecvItemCommand{schoolFaculty}
 
 \ecvItemTitleCommand{thesis}
+
 \ecvItemTitleURLCommand{thesis}
 
+\ecvItemIfTitleCommand{courses}
 
+%\ecvItemIfTitleListCommand{projects}
 
 
 
@@ -139,20 +153,11 @@
 
 
 
-\newcommand{\addCourses}[2]{%
-  \ifCourses{\ecvitem{\coursesString}{\ifEngIta{#1}{#2}}}%
-}%
 
 
 
 
-
-\ifEngIta{
-  \newcommand{\projectsString}{Projects}
-}{
-  \newcommand{\projectsString}{Progetti}
-}
-\newcommand{\addProjects}[1]{%
+\newcommand{\projects}[1]{%
   \ifProjects{\ecvitem{\projectsString}{\begin{ecvitemize}#1\end{ecvitemize}}}%
 }%
 \newcommand{\addProject}[3]{%
