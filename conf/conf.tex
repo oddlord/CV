@@ -2,6 +2,9 @@
 % !TEX encoding = UTF-8
 % !TeX spellcheck = en_GB
 
+%------------------------------------------------------
+% Initial configurations
+%------------------------------------------------------
 \RequirePackage{bibentry}
 \makeatletter\let\saved@bibitem\@bibitem\makeatother
 
@@ -13,26 +16,30 @@
 \usepackage{ifthen}
 
 \graphicspath{{img/}}
+%------------------------------------------------------
 
+%------------------------------------------------------
+% Booleans settings
+%------------------------------------------------------
 \newboolean{coursesBool}
 \newboolean{projectsBool}
 \newboolean{signatureBool}
 \newboolean{urlsBool}
 \newboolean{publicationsBool}
 
-\newcommand{\ifBoolThenElse}[3]{\ifthenelse{\boolean{#1}}{#2}{#3}}%
-\newcommand{\ifBoolThen}[2]{\ifBoolThenElse{#1}{#2}{}}%
-\newcommand{\ifCourses}[1]{\ifBoolThen{coursesBool}{#1}}%
-\newcommand{\ifProjects}[1]{\ifBoolThen{projectsBool}{#1}}%
-\newcommand{\ifSignature}[1]{\ifBoolThen{signatureBool}{#1}}%
-\newcommand{\ifURLs}[1]{\ifBoolThen{urlsBool}{#1}}%
-\newcommand{\ifPublications}[1]{\ifBoolThen{publicationsBool}{#1}}%
-
 \setboolean{coursesBool}{\enableCourses}
 \setboolean{projectsBool}{\enableProjects}
 \setboolean{signatureBool}{\enableSignature}
 \setboolean{urlsBool}{\enableURLs}
 \setboolean{publicationsBool}{\enablePublications}
+%------------------------------------------------------
+
+
+%------------------------------------------------------
+% Utility functions
+%------------------------------------------------------
+\newcommand{\ifBoolThenElse}[3]{\ifthenelse{\boolean{#1}}{#2}{#3}}%
+\newcommand{\ifBoolThen}[2]{\ifBoolThenElse{#1}{#2}{}}%
 
 \newcommand{\ifEngIta}[2]{%
   \ifthenelse{\equal{\cvLanguage}{english}}%
@@ -44,6 +51,13 @@
   }%
 }%
 
+\newcommand{\addURL}[1]{\ifBoolThen{urlsBool}{ - \url{#1}}}
+%------------------------------------------------------
+
+
+%------------------------------------------------------
+% Directly defined newcommands
+%------------------------------------------------------
 \newcommand{\name}[1]{\ecvname{#1}}%
 \newcommand{\address}[2]{\ecvaddress{\ifEngIta{#1}{#2}}}%
 \newcommand{\cellTel}[2]{\ecvtelephone[#1]{#2}}%
@@ -57,284 +71,16 @@
 
 \newcommand{\personalInfo}{\ecvpersonalinfo}
 
-\newcommand{\stringCommand}[3]{%
-  \ifEngIta{%
-    \expandafter\newcommand\csname #1String\endcsname{#2}%
-  }{%
-    \expandafter\newcommand\csname #1String\endcsname{#3}%
-  }%
-}%
-\newcommand{\bigItemCommand}[1]{%
-  \expandafter\newcommand\csname #1\endcsname[2]{%
-    \ecvbigitem{\csname #1String\endcsname}{\ifEngIta{##1}{##2}}%
-  }%
-}%
-\newcommand{\sectionCommand}[1]{%
-  \expandafter\newcommand\csname #1\endcsname{%
-    \ecvsection{\csname #1String\endcsname}%
-  }%
-}%
-\newcommand{\titleCommand}[1]{%
-  \expandafter\newcommand\csname #1\endcsname[4]{%
-    \ecvtitle{\ifEngIta{##1}{##3}}{\ifEngIta{##2}{##4}}%
-  }%
-}%
-\newcommand{\titleLevelCommand}[1]{%
-  \expandafter\newcommand\csname #1\endcsname[5]{%
-    \ecvtitlelevel{\ifEngIta{##1}{##3}}{\ifEngIta{##2}{##4}}{##5}%
-  }%
-}%
-\newcommand{\ecvItemCommand}[1]{%
-  \expandafter\newcommand\csname #1\endcsname[2]{%
-    \ecvitem{}{\ifEngIta{##1}{##2}}%
-  }%
-}%
-\newcommand{\ecvItemTitleCommand}[1]{%
-  \expandafter\newcommand\csname #1\endcsname[2]{%
-    \ecvitem{\csname #1String\endcsname}{\ifEngIta{##1}{##2}}%
-  }%
-}%
-\newcommand{\ecvItemTitleURLCommand}[1]{%
-  \expandafter\newcommand\csname #1URL\endcsname[3]{%
-    \ecvitem{\csname #1String\endcsname}{\ifEngIta{##1}{##2}\addURL{##3}}%
-  }%
-}%
-\newcommand{\ecvItemIfTitleCommand}[1]{%
-  \expandafter\newcommand\csname #1\endcsname[2]{%
-    \ifBoolThen{#1Bool}{\ecvitem{\csname #1String\endcsname}{\ifEngIta{##1}{##2}}}%
-  }%
-}%
-%\newcommand{\ecvItemIfTitleListCommand}[1]{%
-%  \expandafter\newcommand\csname #1\endcsname[1]{%
-%    \ifBoolThen{#1Bool}{\ecvitem{\csname #1String\endcsname}{\begin{ecvitemize}##1\end{ecvitemize}}%
-%  }%
-%}%
+\newcommand{\motherTongue}[2]{\ecvmothertongue{\ifEngIta{#1}{#2}}}%
+\newcommand{\otherLanguage}[7]{\ecvlanguage{\ifEngIta{#1}{#2}}{#3}{#4}{#5}{#6}{#7}}%
+\newcommand{\lastLanguage}[7]{\ecvlastlanguage{\ifEngIta{#1}{#2}}{#3}{#4}{#5}{#6}{#7}}%
+\newcommand{\otherLanguages}[1]{\ecvlanguageheader#1\ecvlanguagefooter}%
 
-\newcommand{\addURL}[1]{\ifURLs{ - \url{#1}}}
-
-\stringCommand{jobAppliedFor}{Job applied for}{Impiego ricercato}
-\stringCommand{workExperience}{Work experience}{Esperienza professionale}
-\stringCommand{educationAndTraining}{Education and training}{Istruzione e formazione}
-\stringCommand{thesis}{Thesis}{Tesi}
-\stringCommand{courses}{Courses}{Corsi}
-\stringCommand{projects}{Projects}{Progetti}
-
-\bigItemCommand{jobAppliedFor}
-
-\sectionCommand{workExperience}
-\sectionCommand{educationAndTraining}
-
-\titleCommand{job}
-
-\titleLevelCommand{school}
-
-\ecvItemCommand{jobLocation}
-\ecvItemCommand{jobDepartment}
-\ecvItemCommand{jobDescription}
-\ecvItemCommand{schoolLocation}
-\ecvItemCommand{schoolFaculty}
-
-\ecvItemTitleCommand{thesis}
-
-\ecvItemTitleURLCommand{thesis}
-
-\ecvItemIfTitleCommand{courses}
-
-%\ecvItemIfTitleListCommand{projects}
-
-
-
-\newcommand{\addItem}[2]{%
-  \ecvitem{}{\ifEngIta{#1}{#2}}%
-}%
-
-
-
-
-
-
-
-
-
-
-\newcommand{\projects}[1]{%
-  \ifProjects{\ecvitem{\projectsString}{\begin{ecvitemize}#1\end{ecvitemize}}}%
-}%
-\newcommand{\addProject}[3]{%
-  \item \textit{#1}: \ifEngIta{#2}{#3}%
-}%
-\newcommand{\addProjectURL}[4]{%
-  \addProject{#1}{#2}{#3}\addURL{#4}%
-}%
-
-\ifEngIta{
-  \newcommand{\finalRankString}{Final rank}
-}{
-  \newcommand{\finalRankString}{Voto finale}
-}
-\newcommand{\addFinalRank}[2]{%
-  \ecvitem{\finalRankString}{\ifEngIta{#1}{#2}}%
-}%
-
-\ifEngIta{
-  \newcommand{\personalSkillsString}{Personal skills}
-}{
-  \newcommand{\personalSkillsString}{Capacità personali}
-}
-\newcommand{\personalSkills}{%
-  \ecvsection{\personalSkillsString}%
-}%
-
-\newcommand{\addLanguage}[7]{%
-  \ecvlanguage{\ifEngIta{#1}{#2}}{#3}{#4}{#5}{#6}{#7}
-}%
-\newcommand{\addLastLanguage}[7]{%
-  \ecvlastlanguage{\ifEngIta{#1}{#2}}{#3}{#4}{#5}{#6}{#7}
-}%
-
-\newcommand{\addMotherTongue}[2]{%
-  \ecvmothertongue{\ifEngIta{#1}{#2}}%
-}%
-\newcommand{\addOtherLanguages}[1]{%
-  \ecvlanguageheader%
-  #1%
-  \ecvlanguagefooter%
-}%
-
-\ifEngIta{
-  \newcommand{\communicationSkillsString}{Communication skills}
-}{
-  \newcommand{\communicationSkillsString}{Capacità di comunicazione}
-}
-\newcommand{\communicationSkills}[2]{%
-  \ecvblueitem{%
-    \communicationSkillsString%
-  }{%
-    \ifEngIta{#1}{#2}%
-  }%
-}%
-
-\ifEngIta{
-  \newcommand{\organisationalSkillsString}{Organisational / managerial skills}
-}{
-  \newcommand{\organisationalSkillsString}{Capacità organizzative / manageriali}
-}
-\newcommand{\organisationalSkills}[2]{%
-  \ecvblueitem{%
-    \organisationalSkillsString%
-  }{%
-    \ifEngIta{#1}{#2}%
-  }%
-}%
-
-\newcommand{\addList}[1]{%
-  \begin{ecvitemize}%
-    #1
-  \end{ecvitemize}%
-}%
-\newcommand{\addListItem}[1]{%
-  \item #1
-}%
-
-\ifEngIta{
-  \newcommand{\computerSkillsString}{Computer skills}
-}{
-  \newcommand{\computerSkillsString}{Capacità informatiche}
-}
-\newcommand{\computerSkills}[2]{%
-  \ecvblueitem{%
-    \computerSkillsString%
-  }{%
-    \ifEngIta{#1}{#2}%
-  }%
-}%
-
-\ifEngIta{
-  \newcommand{\otherSkillsString}{Other skills}
-}{
-  \newcommand{\otherSkillsString}{Altre capacità}
-}
-\newcommand{\otherSkills}[2]{%
-  \ecvblueitem{%
-    \otherSkillsString%
-  }{%
-    \ifEngIta{#1}{#2}%
-  }%
-}%
-
-\ifEngIta{
-  \newcommand{\drivingLicenceString}{Driving licence}
-}{
-  \newcommand{\drivingLicenceString}{Patente}
-}
-\newcommand{\drivingLicence}[2]{%
-  \ecvblueitem{%
-    \drivingLicenceString%
-  }{%
-    \ifEngIta{#1}{#2}%
-  }%
-}%
-
-\ifEngIta{
-  \newcommand{\additionalInfoString}{Additional information}
-}{
-\newcommand{\additionalInfoString}{Ulteriori informazioni}
-}
-\newcommand{\additionalInfo}{%
-  \ecvsection{\additionalInfoString}%
-}%
-
-\ifEngIta{
-  \newcommand{\referencesString}{References}
-}{
-  \newcommand{\referencesString}{Referenze}
-}
-\newcommand{\references}[2]{%
-  \ecvblueitem{%
-    \referencesString%
-  }{%
-    \begin{ecvitemize}\ifEngIta{#1}{#2}\end{ecvitemize}%
-  }%
-}%
-\newcommand{\addReference}[1]{%
-  \addListItem{#1}%
-}%
-
-\ifEngIta{
-  \newcommand{\otherProjectsString}{Other projects}
-}{
-  \newcommand{\otherProjectsString}{Altri progetti}
-}
-\newcommand{\otherProjects}[1]{%
-  \ifProjects{\ecvblueitem{%
-    \otherProjectsString%
-  }{%
-    \begin{ecvitemize}#1\end{ecvitemize}%
-  }}%
-}%
-
-\ifEngIta{
-  \newcommand{\publicationsString}{Publications}
-}{
-\newcommand{\publicationsString}{Pubblicazioni}
-}
-\newcommand{\addPublications}[1]{%
-  \ifPublications{%
-  	\bibliographystyle{plain}
-    \nobibliography{publications}
-    \ecvblueitem{%
-      \publicationsString%
-    }{%
-      \begin{ecvitemize}#1\end{ecvitemize}%
-    }%
-  }%
-}%
-\newcommand{\addPublication}[1]{%
-  \item \bibentry{#1}%
-}%
+\newcommand{\listSection}[1]{\begin{ecvitemize}#1\end{ecvitemize}}%
+\newcommand{\listItem}[1]{\item #1}%
 
 \newcommand{\signature}{%
-  \ifSignature{%
+  \ifBoolThen{signatureBool}{%
     \null\vspace*{\stretch{1}}%
     \flushright%
     \begin{tabular}{rp{250pt}}%
@@ -354,3 +100,173 @@
     \end{tabular}%
   }%
 }%
+
+\newcommand{\publication}[1]{\listItem{\bibentry{#1}}}%
+
+\newcommand{\customSection}[4]{%
+  \ecvblueitem{\ifEngIta{#1}{#3}}{\ifEngIta{#2}{#4}}%
+}%
+%------------------------------------------------------
+
+
+%------------------------------------------------------
+% Meta-newcommand functions declarations
+%------------------------------------------------------
+\newcommand{\stringCommand}[3]{%
+  \ifEngIta{%
+    \expandafter\newcommand\csname #1String\endcsname{#2}%
+  }{%
+    \expandafter\newcommand\csname #1String\endcsname{#3}%
+  }%
+}%
+
+\newcommand{\bigItemCommand}[1]{%
+  \expandafter\newcommand\csname #1\endcsname[2]{%
+    \ecvbigitem{\csname #1String\endcsname}{\ifEngIta{##1}{##2}}%
+  }%
+}%
+
+\newcommand{\sectionCommand}[1]{%
+  \expandafter\newcommand\csname #1\endcsname{%
+    \ecvsection{\csname #1String\endcsname}%
+  }%
+}%
+
+\newcommand{\titleCommand}[1]{%
+  \expandafter\newcommand\csname #1\endcsname[4]{%
+    \ecvtitle{\ifEngIta{##1}{##3}}{\ifEngIta{##2}{##4}}%
+  }%
+}%
+\newcommand{\titleLevelCommand}[1]{%
+  \expandafter\newcommand\csname #1\endcsname[5]{%
+    \ecvtitlelevel{\ifEngIta{##1}{##3}}{\ifEngIta{##2}{##4}}{##5}%
+  }%
+}%
+
+\newcommand{\ecvItemCommand}[1]{%
+  \expandafter\newcommand\csname #1\endcsname[2]{%
+    \ecvitem{}{\ifEngIta{##1}{##2}}%
+  }%
+}%
+\newcommand{\ecvItemTitleCommand}[1]{%
+  \expandafter\newcommand\csname #1\endcsname[2]{%
+    \ecvitem{\csname #1String\endcsname}{\ifEngIta{##1}{##2}}%
+  }%
+}%
+\newcommand{\ecvItemTitleURLCommand}[1]{%
+  \expandafter\newcommand\csname #1URL\endcsname[3]{%
+    \ecvitem{\csname #1String\endcsname}{\ifEngIta{##1}{##2}\addURL{##3}}%
+  }%
+}%
+\newcommand{\ecvItemIfTitleCommand}[2]{%
+  \expandafter\newcommand\csname #1\endcsname[2]{%
+    \ifBoolThen{#2Bool}{\ecvitem{\csname #1String\endcsname}{\ifEngIta{##1}{##2}}}%
+  }%
+}%
+\newcommand{\ecvItemIfTitleListCommand}[2]{%
+  \expandafter\newcommand\csname #1\endcsname[1]{%
+    \ifBoolThen{#2Bool}{\ecvitem{\csname #1String\endcsname}{\begin{ecvitemize}##1\end{ecvitemize}}}%
+  }%
+}%
+
+\newcommand{\itemTitleCommand}[1]{%
+  \expandafter\newcommand\csname #1\endcsname[3]{%
+    \listItem{\textit{##1}: \ifEngIta{##2}{##3}}%
+  }%
+}%
+\newcommand{\itemTitleURLCommand}[1]{%
+  \expandafter\newcommand\csname #1URL\endcsname[4]{%
+    \csname #1\endcsname{##1}{##2}{##3}\addURL{##4}%
+  }%
+}%
+
+\newcommand{\blueItemCommand}[1]{%
+  \expandafter\newcommand\csname #1\endcsname[2]{%
+    \ecvblueitem{\csname #1String\endcsname}{\ifEngIta{##1}{##2}}%
+  }%
+}%
+\newcommand{\blueItemListCommand}[1]{%
+  \expandafter\newcommand\csname #1\endcsname[2]{%
+    \ecvblueitem{\csname #1String\endcsname}{\begin{ecvitemize}\ifEngIta{##1}{##2}\end{ecvitemize}}%
+  }%
+}%
+\newcommand{\blueItemIfListCommands}[2]{%
+  \expandafter\newcommand\csname #1\endcsname[1]{%
+    \ifBoolThen{#2Bool}{\ecvblueitem{\csname #1String\endcsname}{\begin{ecvitemize}##1\end{ecvitemize}}}%
+  }%
+}%
+
+\newcommand{\itemListCommand}[1]{%
+  \expandafter\newcommand\csname #1\endcsname[1]{%
+    \listItem{##1}%
+  }%
+}%
+%------------------------------------------------------
+
+
+%------------------------------------------------------
+% Meta-newcommands definitions
+%------------------------------------------------------
+\stringCommand{jobAppliedFor}{Job applied for}{Impiego ricercato}
+\stringCommand{workExperience}{Work experience}{Esperienza professionale}
+\stringCommand{educationAndTraining}{Education and training}{Istruzione e formazione}
+\stringCommand{thesis}{Thesis}{Tesi}
+\stringCommand{courses}{Courses}{Corsi}
+\stringCommand{projects}{Projects}{Progetti}
+\stringCommand{finalRank}{Final rank}{Voto finale}
+\stringCommand{personalSkills}{Personal skills}{Capacità personali}
+\stringCommand{communicationSkills}{Communication skills}{Capacità di comunicazione}
+\stringCommand{organisationalSkills}{Organisational / managerial skills}{Capacità organizzative / manageriali}
+\stringCommand{computerSkills}{Computer skills}{Capacità informatiche}
+\stringCommand{otherSkills}{Other skills}{Altre capacità}
+\stringCommand{drivingLicence}{Driving licence}{Patente}
+\stringCommand{additionalInfo}{Additional information}{Ulteriori informazioni}
+\stringCommand{references}{References}{Referenze}
+\stringCommand{otherProjects}{Other projects}{Altri progetti}
+\stringCommand{publications}{Publications}{Pubblicazioni}
+
+\bigItemCommand{jobAppliedFor}
+
+\sectionCommand{workExperience}
+\sectionCommand{educationAndTraining}
+\sectionCommand{personalSkills}
+\sectionCommand{additionalInfo}
+
+\titleCommand{job}
+\titleLevelCommand{school}
+
+\ecvItemCommand{jobLocation}
+\ecvItemCommand{jobDepartment}
+\ecvItemCommand{jobDescription}
+\ecvItemCommand{schoolLocation}
+\ecvItemCommand{schoolFaculty}
+\ecvItemTitleCommand{thesis}
+\ecvItemTitleCommand{finalRank}
+\ecvItemTitleURLCommand{thesis}
+\ecvItemIfTitleCommand{courses}{courses}
+\ecvItemIfTitleListCommand{projects}{projects}
+
+\itemTitleCommand{project}
+\itemTitleURLCommand{project}
+
+\blueItemCommand{communicationSkills}
+\blueItemCommand{organisationalSkills}
+\blueItemCommand{computerSkills}
+\blueItemCommand{otherSkills}
+\blueItemCommand{drivingLicence}
+\blueItemListCommand{references}
+\blueItemIfListCommands{otherProjects}{projects}
+\blueItemIfListCommands{publications}{publications}
+
+\itemListCommand{reference}
+%------------------------------------------------------
+
+
+%------------------------------------------------------
+% Final configurations
+%------------------------------------------------------
+\ifBoolThen{publicationsBool}{
+  \bibliographystyle{plain}
+  \nobibliography{publications}
+}
+%------------------------------------------------------
