@@ -186,8 +186,8 @@
   }%
 }%
 \newcommand{\blueItemListCommand}[1]{%
-  \expandafter\newcommand\csname #1\endcsname[2]{%
-    \ecvblueitem{\csname #1String\endcsname}{\begin{ecvitemize}\ifEngIta{##1}{##2}\end{ecvitemize}}%
+  \expandafter\newcommand\csname #1\endcsname[1]{%
+    \ecvblueitem{\csname #1String\endcsname}{\begin{ecvitemize}##1\end{ecvitemize}}%
   }%
 }%
 \newcommand{\blueItemIfListCommands}[2]{%
@@ -197,8 +197,8 @@
 }%
 
 \newcommand{\itemListCommand}[1]{%
-  \expandafter\newcommand\csname #1\endcsname[1]{%
-    \listItem{##1}%
+  \expandafter\newcommand\csname #1\endcsname[2]{%
+    \listItem{\ifEngIta{##1}{##2}}%
   }%
 }%
 %------------------------------------------------------
