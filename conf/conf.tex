@@ -2,9 +2,7 @@
 % !TeX encoding = UTF-8
 % !TeX spellcheck = en_GB
 
-%------------------------------------------------------
-% Initial configurations
-%------------------------------------------------------
+% === Initial configurations ==========================
 \RequirePackage{bibentry}
 \makeatletter\let\saved@bibitem\@bibitem\makeatother
 
@@ -16,12 +14,10 @@
 \usepackage{ifthen}
 
 \graphicspath{{img/}}
-%------------------------------------------------------
+% -----------------------------------------------------
 
 
-%------------------------------------------------------
-% Booleans settings
-%------------------------------------------------------
+% === Booleans settings ===============================
 \newboolean{coursesBool}
 \newboolean{projectsBool}
 \newboolean{signatureBool}
@@ -33,12 +29,10 @@
 \setboolean{signatureBool}{\enableSignature}
 \setboolean{urlsBool}{\enableURLs}
 \setboolean{publicationsBool}{\enablePublications}
-%------------------------------------------------------
+% -----------------------------------------------------
 
 
-%------------------------------------------------------
-% Utility functions
-%------------------------------------------------------
+% === Utility functions ===============================
 \newcommand{\ifBoolThenElse}[3]{\ifthenelse{\boolean{#1Bool}}{#2}{#3}}%
 \newcommand{\ifBoolThen}[2]{\ifBoolThenElse{#1}{#2}{}}%
 
@@ -53,12 +47,10 @@
 }%
 
 \newcommand{\addURL}[1]{\ifBoolThen{urls}{ - \url{#1}}}
-%------------------------------------------------------
+% -----------------------------------------------------
 
 
-%------------------------------------------------------
-% Directly defined newcommands
-%------------------------------------------------------
+% === Directly defined newcommands ====================
 \newcommand{\cv}[1]{%
   \begin{document}%
     \begin{europasscv}%
@@ -119,12 +111,10 @@
 \newcommand{\customSection}[4]{%
   \ecvblueitem{\ifEngIta{#1}{#3}}{\ifEngIta{#2}{#4}}%
 }%
-%------------------------------------------------------
+% -----------------------------------------------------
 
 
-%------------------------------------------------------
-% Meta-newcommand functions declarations
-%------------------------------------------------------
+% === Meta-newcommand functions declarations ==========
 \newcommand{\stringCommand}[3]{%
   \ifEngIta{%
     \expandafter\newcommand\csname #1String\endcsname{#2}%
@@ -220,12 +210,10 @@
     \listItem{\ifEngIta{##1}{##2}}%
   }%
 }%
-%------------------------------------------------------
+% -----------------------------------------------------
 
 
-%------------------------------------------------------
-% Meta-newcommands definitions
-%------------------------------------------------------
+% === Meta-newcommands definitions ====================
 \stringCommand{jobAppliedFor}{Job applied for}{Impiego ricercato}
 \stringCommand{workExperience}{Work experience}{Esperienza professionale}
 \stringCommand{educationAndTraining}{Education and training}{Istruzione e formazione}
@@ -278,4 +266,4 @@
 \blueItemIfListExtraCommands{publications}{publications}{\bibliographystyle{plain}\nobibliography{back/publications}}
 
 \itemListCommand{reference}
-%------------------------------------------------------
+% -----------------------------------------------------
