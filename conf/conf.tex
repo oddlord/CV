@@ -18,6 +18,7 @@
 \graphicspath{{img/}}
 %------------------------------------------------------
 
+
 %------------------------------------------------------
 % Booleans settings
 %------------------------------------------------------
@@ -58,6 +59,15 @@
 %------------------------------------------------------
 % Directly defined newcommands
 %------------------------------------------------------
+\newcommand{\cv}[1]{%
+  \begin{document}%
+    \begin{europasscv}%
+      #1%
+    \end{europasscv}%
+    \signature%
+  \end{document}%
+}%
+
 \newcommand{\name}[1]{\ecvname{#1}}%
 \newcommand{\address}[2]{\ecvaddress{\ifEngIta{#1}{#2}}}%
 \newcommand{\cellTel}[2]{\ecvtelephone[#1]{#2}}%
@@ -69,7 +79,10 @@
 \newcommand{\nationality}[2]{\ecvnationality{\ifEngIta{#1}{#2}}}%
 \newcommand{\avatar}[1]{\ecvpicture[width=3.8cm]{#1}}%
 
-\newcommand{\personalInfo}{\ecvpersonalinfo}
+\newcommand{\personalInfo}[1]{%
+  #1
+  \ecvpersonalinfo%
+}%
 
 \newcommand{\motherTongue}[2]{\ecvmothertongue{\ifEngIta{#1}{#2}}}%
 \newcommand{\otherLanguage}[7]{\ecvlanguage{\ifEngIta{#1}{#2}}{#3}{#4}{#5}{#6}{#7}}%
