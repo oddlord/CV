@@ -1,5 +1,5 @@
 % !TeX root = ../cv.tex
-% !TEX encoding = UTF-8
+% !TeX encoding = UTF-8
 % !TeX spellcheck = en_GB
 
 %------------------------------------------------------
@@ -38,7 +38,7 @@
 %------------------------------------------------------
 % Utility functions
 %------------------------------------------------------
-\newcommand{\ifBoolThenElse}[3]{\ifthenelse{\boolean{#1}}{#2}{#3}}%
+\newcommand{\ifBoolThenElse}[3]{\ifthenelse{\boolean{#1Bool}}{#2}{#3}}%
 \newcommand{\ifBoolThen}[2]{\ifBoolThenElse{#1}{#2}{}}%
 
 \newcommand{\ifEngIta}[2]{%
@@ -51,7 +51,7 @@
   }%
 }%
 
-\newcommand{\addURL}[1]{\ifBoolThen{urlsBool}{ - \url{#1}}}
+\newcommand{\addURL}[1]{\ifBoolThen{urls}{ - \url{#1}}}
 %------------------------------------------------------
 
 
@@ -80,7 +80,7 @@
 \newcommand{\listItem}[1]{\item #1}%
 
 \newcommand{\signature}{%
-  \ifBoolThen{signatureBool}{%
+  \ifBoolThen{signature}{%
     \null\vspace*{\stretch{1}}%
     \flushright%
     \begin{tabular}{rp{250pt}}%
@@ -160,12 +160,12 @@
 }%
 \newcommand{\ecvItemIfTitleCommand}[2]{%
   \expandafter\newcommand\csname #1\endcsname[2]{%
-    \ifBoolThen{#2Bool}{\ecvitem{\csname #1String\endcsname}{\ifEngIta{##1}{##2}}}%
+    \ifBoolThen{#2}{\ecvitem{\csname #1String\endcsname}{\ifEngIta{##1}{##2}}}%
   }%
 }%
 \newcommand{\ecvItemIfTitleListCommand}[2]{%
   \expandafter\newcommand\csname #1\endcsname[1]{%
-    \ifBoolThen{#2Bool}{\ecvitem{\csname #1String\endcsname}{\begin{ecvitemize}##1\end{ecvitemize}}}%
+    \ifBoolThen{#2}{\ecvitem{\csname #1String\endcsname}{\begin{ecvitemize}##1\end{ecvitemize}}}%
   }%
 }%
 
@@ -190,9 +190,15 @@
     \ecvblueitem{\csname #1String\endcsname}{\begin{ecvitemize}##1\end{ecvitemize}}%
   }%
 }%
-\newcommand{\blueItemIfListCommands}[2]{%
+\newcommand{\blueItemIfListCommand}[2]{%
   \expandafter\newcommand\csname #1\endcsname[1]{%
-    \ifBoolThen{#2Bool}{\ecvblueitem{\csname #1String\endcsname}{\begin{ecvitemize}##1\end{ecvitemize}}}%
+    \ifBoolThen{#2}{\ecvblueitem{\csname #1String\endcsname}{\begin{ecvitemize}##1\end{ecvitemize}}}%
+  }%
+}%
+\newcommand{\blueItemIfListExtraCommands}[3]{%
+  \expandafter\newcommand\csname #1\endcsname[1]{%
+    #3
+    \ifBoolThen{#2}{\ecvblueitem{\csname #1String\endcsname}{\begin{ecvitemize}##1\end{ecvitemize}}}%
   }%
 }%
 
@@ -255,18 +261,8 @@
 \blueItemCommand{otherSkills}
 \blueItemCommand{drivingLicence}
 \blueItemListCommand{references}
-\blueItemIfListCommands{otherProjects}{projects}
-\blueItemIfListCommands{publications}{publications}
+\blueItemIfListCommand{otherProjects}{projects}
+\blueItemIfListExtraCommands{publications}{publications}{\bibliographystyle{plain}\nobibliography{back/publications}}
 
 \itemListCommand{reference}
-%------------------------------------------------------
-
-
-%------------------------------------------------------
-% Final configurations
-%------------------------------------------------------
-\ifBoolThen{publicationsBool}{
-  \bibliographystyle{plain}
-  \nobibliography{publications}
-}
 %------------------------------------------------------
