@@ -114,7 +114,7 @@
 % -----------------------------------------------------
 
 
-% === Meta-newcommand functions declarations ==========
+% === Meta-newcommand functions definition ==========
 \newcommand{\stringCommand}[3]{%
   \ifEngIta{%
     \expandafter\newcommand\csname #1String\endcsname{#2}%
@@ -213,7 +213,7 @@
 % -----------------------------------------------------
 
 
-% === Meta-newcommands definitions ====================
+% === Meta-newcommands creation ====================
 \stringCommand{jobAppliedFor}{Job applied for}{Impiego ricercato}
 \stringCommand{workExperience}{Work experience}{Esperienza professionale}
 \stringCommand{educationAndTraining}{Education and training}{Istruzione e formazione}
