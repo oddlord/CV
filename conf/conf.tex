@@ -23,12 +23,14 @@
 \newboolean{signatureBool}
 \newboolean{urlsBool}
 \newboolean{publicationsBool}
+\newboolean{avatarBool}
 
 \setboolean{coursesBool}{\enableCourses}
 \setboolean{projectsBool}{\enableProjects}
 \setboolean{signatureBool}{\enableSignature}
 \setboolean{urlsBool}{\enableURLs}
 \setboolean{publicationsBool}{\enablePublications}
+\setboolean{avatarBool}{\enableAvatar}
 % -----------------------------------------------------
 
 
@@ -69,7 +71,7 @@
 \newcommand{\gender}[2]{\ecvgender{\ifEngIta{#1}{#2}}}%
 \newcommand{\dateOfBirth}[2]{\ecvdateofbirth{\ifEngIta{#1}{#2}}}%
 \newcommand{\nationality}[2]{\ecvnationality{\ifEngIta{#1}{#2}}}%
-\newcommand{\avatar}[1]{\ecvpicture[width=3.8cm]{#1}}%
+\newcommand{\avatar}[1]{\ifBoolThen{avatar}{\ecvpicture[width=3.8cm]{#1}}}%
 
 \newcommand{\personalInfo}[1]{%
   #1
